@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Me — Trang Tran</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --orange: #c94a00;
+      --orange-hover: #a33d00;
+      --ink: #1a1a1a;
+      --ink2: #4a4a44;
+      --ink3: #9a9a90;
+      --paper: #f0ede8;
+      --paper2: #e8e4dd;
+      --white: #ffffff;
+      --border: #d8d4cc;
+      --radius: 8px;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    /* ── NAV ── */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      height: 60px;
+      background: var(--paper);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-logo {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--ink);
+      font-style: italic;
+    }
+    .nav-links {
+      display: flex;
+      gap: 48px;
+    }
+    .nav-links a {
+      font-size: 13px;
+      color: var(--ink2);
+      text-decoration: none;
+      font-weight: 400;
+      letter-spacing: 0.2px;
+      padding-bottom: 2px;
+      border-bottom: 1px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--ink);
+      border-bottom-color: var(--orange);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 72px 48px 64px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .hero-title {
+      font-size: 64px;
+      font-weight: 900;
+      line-height: 1.0;
+      letter-spacing: -2px;
+      color: var(--ink);
+    }
+    .hero-title span {
+      color: var(--orange);
+    }
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      margin-top: 32px;
+    }
+    .btn-primary {
+      background: var(--orange);
+      color: #fff;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 100px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background 0.2s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--orange-hover); }
+    .btn-download {
+      font-size: 13px;
+      color: var(--orange);
+      text-decoration: underline;
+      font-weight: 500;
+      cursor: pointer;
+      background: none;
+      border: none;
+      font-family: inherit;
+    }
+
+    .hero-contacts {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .contact-info-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 14px;
+      color: var(--ink2);
+      text-decoration: none;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .contact-info-card:hover {
+      border-color: var(--orange);
+      transform: translateX(4px);
+    }
+    .contact-info-card .icon {
+      width: 36px;
+      height: 36px;
+      background: var(--orange);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 15px;
+    }
+
+    /* ── COMPANY STRIP ── */
+    .strip {
+      background: var(--orange);
+      padding: 18px 48px;
+      overflow: hidden;
+      position: relative;
+    }
+    .strip-inner {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      white-space: nowrap;
+    }
+    .strip-label {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      font-weight: 600;
+      margin-right: 48px;
+      flex-shrink: 0;
+    }
+    .strip-logos {
+      display: flex;
+      gap: 56px;
+      align-items: center;
+      animation: marquee 18s linear infinite;
+    }
+    .strip-logos-clone {
+      display: flex;
+      gap: 56px;
+      align-items: center;
+      animation: marquee 18s linear infinite;
+      margin-left: 56px;
+    }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+    .strip-logo {
+      font-size: 16px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.9);
+      letter-spacing: -0.3px;
+      flex-shrink: 0;
+    }
+    .strip-logos-wrap {
+      display: flex;
+      overflow: hidden;
+      flex: 1;
+    }
+
+    /* ── CONTACT FORM SECTION ── */
+    .form-section {
+      max-width: 700px;
+      margin: 56px auto;
+      padding: 0 48px;
+    }
+    .form-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 48px;
+    }
+    .form-card h2 {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 32px;
+      letter-spacing: -0.5px;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink2);
+    }
+    .form-group input,
+    .form-group textarea {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 12px 16px;
+      font-size: 14px;
+      font-family: inherit;
+      color: var(--ink);
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--orange);
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: var(--ink3);
+    }
+    .form-group textarea {
+      resize: vertical;
+      min-height: 160px;
+      line-height: 1.6;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .phone-input-wrap {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .phone-flag {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 12px 14px;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--ink2);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .phone-flag span { font-size: 18px; }
+    .phone-input-wrap input { flex: 1; }
+
+    .btn-send {
+      background: var(--orange);
+      color: #fff;
+      border: none;
+      padding: 13px 40px;
+      border-radius: 100px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background 0.2s;
+      display: block;
+      margin: 8px auto 0;
+    }
+    .btn-send:hover { background: var(--orange-hover); }
+
+    .success-msg {
+      display: none;
+      background: #f0fdf4;
+      border: 1px solid #86efac;
+      border-radius: var(--radius);
+      padding: 16px;
+      text-align: center;
+      font-size: 14px;
+      color: #166534;
+      margin-top: 16px;
+    }
+    .success-msg.show { display: block; }
+
+    /* ── FOOTER CTA ── */
+    .footer-cta {
+      background: var(--paper2);
+      padding: 64px 48px 48px;
+      border-top: 1px solid var(--border);
+      margin-top: 40px;
+    }
+    .footer-cta-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .footer-cta h2 {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.25;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+    .footer-cta h2 span { color: var(--orange); }
+    .footer-cta p {
+      font-size: 13px;
+      color: var(--ink2);
+      line-height: 1.75;
+      margin-bottom: 24px;
+      font-weight: 300;
+      max-width: 320px;
+    }
+    .footer-cols {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      padding-top: 8px;
+    }
+    .footer-col-label {
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--ink3);
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .footer-col a, .footer-col div {
+      display: block;
+      font-size: 12px;
+      color: var(--ink2);
+      text-decoration: none;
+      margin-bottom: 7px;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: var(--orange); }
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 32px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--ink3);
+    }
+    .footer-bottom-links { display: flex; gap: 20px; }
+    .footer-bottom-links a {
+      color: var(--ink3);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-bottom-links a:hover { color: var(--orange); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .nav-links { gap: 20px; }
+      .hero { grid-template-columns: 1fr; padding: 48px 20px; }
+      .hero-title { font-size: 42px; }
+      .form-section { padding: 0 20px; }
+      .form-card { padding: 28px 20px; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-cta { padding: 48px 20px 32px; }
+      .footer-cta-inner { grid-template-columns: 1fr; gap: 32px; }
+      .footer-cols { grid-template-columns: 1fr 1fr; }
+      .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+      .strip { padding: 18px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">it's me!</div>
+  <div class="nav-links">
+    <a href="about.html">about me</a>
+    <a href="services.html">my services</a>
+    <a href="projects.html">my projects</a>
+    <a href="contact.html" class="active">contact me</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div>
+    <h1 class="hero-title">Let's get in <span>touch</span>!</h1>
+    <div class="hero-actions">
+      <a href="mailto:trangtran230899@gmail.com" class="btn-primary">Let's talk</a>
+      <button class="btn-download" onclick="window.open('#')">Download CV</button>
+    </div>
+  </div>
+  <div class="hero-contacts">
+    <a href="mailto:trangtran230899@gmail.com" class="contact-info-card">
+      <div class="icon">✉️</div>
+      trangtran230899@gmail.com
+    </a>
+    <a href="tel:+84936170743" class="contact-info-card">
+      <div class="icon">📞</div>
+      (+84) 936 170 743
+    </a>
+    <div class="contact-info-card">
+      <div class="icon">📍</div>
+      Ho Chi Minh City, Vietnam
+    </div>
+  </div>
+</div>
+
+<!-- COMPANY STRIP -->
+<div class="strip">
+  <div class="strip-inner">
+    <div class="strip-label">EXPERIENCED AT</div>
+    <div class="strip-logos-wrap">
+      <div class="strip-logos">
+        <div class="strip-logo">Golden Owl</div>
+        <div class="strip-logo">AESIRX</div>
+        <div class="strip-logo">HCLTech</div>
+        <div class="strip-logo">Launchmen</div>
+        <div class="strip-logo">The Vietnam Group</div>
+      </div>
+      <div class="strip-logos strip-logos-clone">
+        <div class="strip-logo">Golden Owl</div>
+        <div class="strip-logo">AESIRX</div>
+        <div class="strip-logo">HCLTech</div>
+        <div class="strip-logo">Launchmen</div>
+        <div class="strip-logo">The Vietnam Group</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT FORM -->
+<div class="form-section">
+  <div class="form-card">
+    <h2>Contact me</h2>
+    <form name="contact" netlify netlify-honeypot="bot-field" onsubmit="handleSubmit(event)">
+      <input type="hidden" name="form-name" value="contact"/>
+      <p style="display:none"><input name="bot-field"/></p>
+
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" name="name" placeholder="John Doe" required/>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" name="email" placeholder="johndoe@outlook.com" required/>
+        </div>
+        <div class="form-group">
+          <label>Phone number</label>
+          <div class="phone-input-wrap">
+            <div class="phone-flag"><span>🇺🇸</span> +1</div>
+            <input type="tel" name="phone" placeholder="xxx xxx xxx"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>What's in your mind?</label>
+        <textarea name="message" placeholder="Tell me about your project or opportunity..." required></textarea>
+      </div>
+
+      <button type="submit" class="btn-send">Send</button>
+      <div class="success-msg" id="successMsg">
+        ✅ Message sent! I'll get back to you within 24 hours.
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- FOOTER CTA -->
+<div class="footer-cta">
+  <div class="footer-cta-inner">
+    <div>
+      <h2>Let's build something <span>worth talking</span> about.</h2>
+      <p>Open to <strong>full-time</strong>, <strong>contract</strong>, and <strong>freelance roles</strong> in project management, content, marketing, and creative production. Based in Ho Chi Minh City — working with teams globally.</p>
+      <a href="contact.html" class="btn-primary">Let's talk</a>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <div class="footer-col-label">ABOUT ME</div>
+        <a href="about.html">who am i?</a>
+        <a href="about.html">my experience</a>
+        <a href="about.html">software skills</a>
+        <a href="about.html">my education</a>
+        <a href="about.html">references</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-label">MY SERVICES</div>
+        <a href="services.html">project management</a>
+        <a href="services.html">content management</a>
+        <a href="services.html">creative design</a>
+        <a href="services.html">video editing</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-label">MY PROJECTS</div>
+        <a href="projects.html">project management</a>
+        <a href="projects.html">content writing</a>
+        <a href="projects.html">social media management</a>
+        <a href="projects.html">brand builds</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2026 Trang Tran · Ho Chi Minh City, Vietnam</div>
+    <div class="footer-bottom-links">
+      <a href="https://www.linkedin.com/in/trang-tran-030243196/" target="_blank">LinkedIn</a>
+      <a href="mailto:trangtran230899@gmail.com">Email</a>
+      <a href="#">Download CV</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  function handleSubmit(e) {
+    e.preventDefault();
+    const form = e.target;
+    const data = new FormData(form);
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(data).toString()
+    })
+    .then(() => {
+      document.getElementById('successMsg').classList.add('show');
+      form.reset();
+    })
+    .catch(() => {
+      document.getElementById('successMsg').textContent = '❌ Something went wrong. Please email me directly.';
+      document.getElementById('successMsg').classList.add('show');
+    });
+  }
+</script>
+
+</body>
+</html>
