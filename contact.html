@@ -27,9 +27,10 @@
       color: var(--ink);
       font-size: 15px;
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
-    /* ── NAV ── */
+    /* NAV */
     nav {
       display: flex;
       align-items: center;
@@ -57,30 +58,42 @@
       color: var(--ink2);
       text-decoration: none;
       font-weight: 400;
-      letter-spacing: 0.2px;
       padding-bottom: 2px;
       border-bottom: 1px solid transparent;
       transition: color 0.2s, border-color 0.2s;
     }
-    .nav-links a:hover,
-    .nav-links a.active {
+    .nav-links a:hover, .nav-links a.active {
       color: var(--ink);
       border-bottom-color: var(--orange);
     }
 
-    /* ── HERO ── */
-    .hero {
-      padding: 72px 48px 64px;
+    /* HERO */
+    .hero-wrap {
+      width: 100%;
       display: flex;
+      justify-content: center;
+      padding: 72px 48px 64px;
+    }
+    .hero {
+      width: 100%;
+      max-width: 960px;
+      display: flex;
+      flex-direction: row;
       justify-content: space-between;
       align-items: center;
       gap: 48px;
-      max-width: 960px;
-      margin: 0 auto;
-      width: 100%;
+    }
+    .hero-left {
+      flex: 1;
+    }
+    .hero-right {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
     }
     .hero-title {
-      font-size: 64px;
+      font-size: 60px;
       font-weight: 900;
       line-height: 1.0;
       letter-spacing: -2px;
@@ -120,15 +133,6 @@
       border: none;
       font-family: inherit;
     }
-
-    .hero-left {
-      flex: 1;
-    }
-    .hero-contacts {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
     .contact-info-card {
       background: var(--white);
       border: 1px solid var(--border);
@@ -158,18 +162,17 @@
       font-size: 15px;
     }
 
-    /* ── COMPANY STRIP ── */
+    /* STRIP */
     .strip {
       background: var(--orange);
-      padding: 18px 0px;
+      padding: 18px 0;
       overflow: hidden;
-      position: relative;
+      width: 100%;
     }
     .strip-inner {
       display: flex;
       align-items: center;
-      gap: 0;
-      white-space: nowrap;
+      width: 100%;
     }
     .strip-label {
       font-size: 11px;
@@ -177,51 +180,56 @@
       text-transform: uppercase;
       color: rgba(255,255,255,0.7);
       font-weight: 600;
-      margin-right: 24px;
-      flex-shrink: 0;  
-      padding-left: 24px;
-    }
-    .strip-logos {
-      display: flex;
-      gap: 56px;
-      align-items: center;
-      animation: marquee 18s linear infinite;
-    }
-    .strip-logos-clone {
-      display: flex;
-      gap: 56px;
-      align-items: center;
-      animation: marquee 18s linear infinite;
-      margin-left: 56px;
-    }
-    @keyframes marquee {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-100%); }
-    }
-    .strip-logo {
-      font-size: 16px;
-      font-weight: 700;
-      color: rgba(255,255,255,0.9);
-      letter-spacing: -0.3px;
+      padding-left: 48px;
+      padding-right: 32px;
       flex-shrink: 0;
+      white-space: nowrap;
     }
     .strip-logos-wrap {
       display: flex;
       overflow: hidden;
       flex: 1;
     }
+    .strip-logos {
+      display: flex;
+      gap: 56px;
+      align-items: center;
+      animation: marquee 20s linear infinite;
+      flex-shrink: 0;
+    }
+    .strip-logos-clone {
+      display: flex;
+      gap: 56px;
+      align-items: center;
+      animation: marquee 20s linear infinite;
+      flex-shrink: 0;
+      padding-left: 56px;
+    }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+    .strip-logo {
+      font-size: 15px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.9);
+      white-space: nowrap;
+    }
 
-    /* ── CONTACT FORM SECTION ── */
-    .form-section {
-      max-width: 780px;
-      margin: 56px auto;
-      padding: 0 80px;
+    /* FORM */
+    .form-wrap {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 56px 48px;
     }
     .form-card {
       background: var(--white);
       border: 1px solid var(--border);
       border-radius: 16px;
       padding: 48px;
+      width: 100%;
+      max-width: 680px;
     }
     .form-card h2 {
       font-size: 28px;
@@ -292,7 +300,6 @@
     }
     .phone-flag span { font-size: 18px; }
     .phone-input-wrap input { flex: 1; }
-
     .btn-send {
       background: var(--orange);
       color: #fff;
@@ -308,7 +315,6 @@
       margin: 8px auto 0;
     }
     .btn-send:hover { background: var(--orange-hover); }
-
     .success-msg {
       display: none;
       background: #f0fdf4;
@@ -322,15 +328,14 @@
     }
     .success-msg.show { display: block; }
 
-    /* ── FOOTER CTA ── */
+    /* FOOTER CTA */
     .footer-cta {
       background: var(--paper2);
       padding: 64px 48px 48px;
       border-top: 1px solid var(--border);
-      margin-top: 40px;
     }
     .footer-cta-inner {
-      max-width: 900px;
+      max-width: 960px;
       margin: 0 auto;
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -352,7 +357,6 @@
       line-height: 1.75;
       margin-bottom: 24px;
       font-weight: 300;
-      max-width: 320px;
     }
     .footer-cols {
       display: grid;
@@ -378,7 +382,7 @@
     }
     .footer-col a:hover { color: var(--orange); }
     .footer-bottom {
-      max-width: 1100px;
+      max-width: 960px;
       margin: 32px auto 0;
       padding-top: 24px;
       border-top: 1px solid var(--border);
@@ -395,27 +399,10 @@
       transition: color 0.2s;
     }
     .footer-bottom-links a:hover { color: var(--orange); }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 768px) {
-      nav { padding: 0 20px; }
-      .nav-links { gap: 20px; }
-      .hero { grid-template-columns: 1fr; padding: 48px 20px; }
-      .hero-title { font-size: 42px; }
-      .form-section { padding: 0 20px; }
-      .form-card { padding: 28px 20px; }
-      .form-row { grid-template-columns: 1fr; }
-      .footer-cta { padding: 48px 20px 32px; }
-      .footer-cta-inner { grid-template-columns: 1fr; gap: 32px; }
-      .footer-cols { grid-template-columns: 1fr 1fr; }
-      .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
-      .strip { padding: 18px 20px; }
-    }
   </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="nav-logo">it's me!</div>
   <div class="nav-links">
@@ -426,32 +413,32 @@
   </div>
 </nav>
 
-<!-- HERO -->
-<div class="hero">
-  <div>
-    <h1 class="hero-title">Let's get in <span>touch</span>!</h1>
-    <div class="hero-actions">
-      <a href="mailto:trangtran230899@gmail.com" class="btn-primary">Let's talk</a>
-      <button class="btn-download" onclick="window.open('#')">Download CV</button>
+<div class="hero-wrap">
+  <div class="hero">
+    <div class="hero-left">
+      <h1 class="hero-title">Let's get in <span>touch</span>!</h1>
+      <div class="hero-actions">
+        <a href="mailto:trangtran230899@gmail.com" class="btn-primary">Let's talk</a>
+        <button class="btn-download">Download CV</button>
+      </div>
     </div>
-  </div>
-  <div class="hero-contacts">
-    <a href="mailto:trangtran230899@gmail.com" class="contact-info-card">
-      <div class="icon">✉️</div>
-      trangtran230899@gmail.com
-    </a>
-    <a href="tel:+84936170743" class="contact-info-card">
-      <div class="icon">📞</div>
-      (+84) 936 170 743
-    </a>
-    <div class="contact-info-card">
-      <div class="icon">📍</div>
-      Ho Chi Minh City, Vietnam
+    <div class="hero-right">
+      <a href="mailto:trangtran230899@gmail.com" class="contact-info-card">
+        <div class="icon">✉️</div>
+        trangtran230899@gmail.com
+      </a>
+      <a href="tel:+84936170743" class="contact-info-card">
+        <div class="icon">📞</div>
+        (+84) 936 170 743
+      </a>
+      <div class="contact-info-card">
+        <div class="icon">📍</div>
+        Ho Chi Minh City, Vietnam
+      </div>
     </div>
   </div>
 </div>
 
-<!-- COMPANY STRIP -->
 <div class="strip">
   <div class="strip-inner">
     <div class="strip-label">EXPERIENCED AT</div>
@@ -463,7 +450,7 @@
         <div class="strip-logo">Launchmen</div>
         <div class="strip-logo">The Vietnam Group</div>
       </div>
-      <div class="strip-logos strip-logos-clone">
+      <div class="strip-logos-clone">
         <div class="strip-logo">Golden Owl</div>
         <div class="strip-logo">AesirX</div>
         <div class="strip-logo">HCLTech</div>
@@ -474,19 +461,16 @@
   </div>
 </div>
 
-<!-- CONTACT FORM -->
-<div class="form-section">
+<div class="form-wrap">
   <div class="form-card">
     <h2>Contact me</h2>
     <form name="contact" netlify netlify-honeypot="bot-field" onsubmit="handleSubmit(event)">
       <input type="hidden" name="form-name" value="contact"/>
       <p style="display:none"><input name="bot-field"/></p>
-
       <div class="form-group">
         <label>Name</label>
         <input type="text" name="name" placeholder="John Doe" required/>
       </div>
-
       <div class="form-row">
         <div class="form-group">
           <label>Email</label>
@@ -500,12 +484,10 @@
           </div>
         </div>
       </div>
-
       <div class="form-group">
         <label>What's in your mind?</label>
         <textarea name="message" placeholder="Tell me about your project or opportunity..." required></textarea>
       </div>
-
       <button type="submit" class="btn-send">Send</button>
       <div class="success-msg" id="successMsg">
         ✅ Message sent! I'll get back to you within 24 hours.
@@ -514,7 +496,6 @@
   </div>
 </div>
 
-<!-- FOOTER CTA -->
 <div class="footer-cta">
   <div class="footer-cta-inner">
     <div>
@@ -540,9 +521,9 @@
       </div>
       <div class="footer-col">
         <div class="footer-col-label">MY PROJECTS</div>
-        <a href="projects.html">project management</a>
+        <a href="projects.html">video production</a>
         <a href="projects.html">content writing</a>
-        <a href="projects.html">social media management</a>
+        <a href="projects.html">social media</a>
         <a href="projects.html">brand builds</a>
       </div>
     </div>
@@ -558,24 +539,24 @@
 </div>
 
 <script>
-  function handleSubmit(e) {
-    e.preventDefault();
-    const form = e.target;
-    const data = new FormData(form);
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(data).toString()
-    })
-    .then(() => {
-      document.getElementById('successMsg').classList.add('show');
-      form.reset();
-    })
-    .catch(() => {
-      document.getElementById('successMsg').textContent = '❌ Something went wrong. Please email me directly.';
-      document.getElementById('successMsg').classList.add('show');
-    });
-  }
+function handleSubmit(e) {
+  e.preventDefault();
+  const form = e.target;
+  const data = new FormData(form);
+  fetch('/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams(data).toString()
+  })
+  .then(() => {
+    document.getElementById('successMsg').classList.add('show');
+    form.reset();
+  })
+  .catch(() => {
+    document.getElementById('successMsg').textContent = '❌ Something went wrong. Please email me directly.';
+    document.getElementById('successMsg').classList.add('show');
+  });
+}
 </script>
 
 </body>
