@@ -35,7 +35,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 48px;
+      padding: 0 72px;
       height: 60px;
       background: var(--paper);
       border-bottom: 1px solid var(--border);
@@ -160,6 +160,7 @@
       justify-content: center;
       flex-shrink: 0;
       font-size: 15px;
+      color: #fff;
     }
 
     /* STRIP */
@@ -169,12 +170,14 @@
       overflow: hidden;
       width: 100%;
       display: flex;
+      justify-content: center;
     }
     .strip-inner {
       display: flex;
       align-items: center;
       width: 100%;
       max-width: 1100px;
+      margin: 0 auto;
     }
     .strip-label {
       font-size: 11px;
@@ -182,8 +185,8 @@
       text-transform: uppercase;
       color: rgba(255,255,255,0.7);
       font-weight: 600;
+      padding-left: 48px;
       padding-right: 32px;
-      margin-left: calc((100% - 1100px) / 2 + 48px);
       flex-shrink: 0;
       white-space: nowrap;
     }
@@ -337,7 +340,7 @@
       border-top: 1px solid var(--border);
     }
     .footer-cta-inner {
-      max-width: 960px;
+      max-width: 1100px;
       margin: 0 auto;
       display: grid;
       grid-template-columns: 1fr 1fr;
