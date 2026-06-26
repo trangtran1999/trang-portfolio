@@ -71,12 +71,13 @@
     /* ── HERO ── */
     .hero {
       padding: 72px 48px 64px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
+      display: flex;
+      justify-content: space-between;
       align-items: center;
-      max-width: 900px;
+      gap: 48px;
+      max-width: 960px;
       margin: 0 auto;
+      width: 100%;
     }
     .hero-title {
       font-size: 64px;
@@ -120,6 +121,9 @@
       font-family: inherit;
     }
 
+    .hero-left {
+      flex: 1;
+    }
     .hero-contacts {
       display: flex;
       flex-direction: column;
