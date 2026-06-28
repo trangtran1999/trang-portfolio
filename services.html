@@ -34,21 +34,78 @@
     </div>
   </section>
 
-  <!-- EXPERIENCED AT STRIPE -->
-  <section class="strip">
-    <div class="strip-inner">
-      <div class="strip-label">EXPERIENCED AT</div>
-      <div class="strip-logos-wrap">
-        <div class="strip-logos">
-          <img src="/assets/logos/golden-owl-logo-1.svg" alt="Golden Owl" class="strip-logo-img">
-          <img src="/assets/logos/aseirx-logo-1.svg" alt="AesirX" class="strip-logo-img">
-          <img src="/assets/logos/hcl-tech-1.svg" alt="HCLTech" class="strip-logo-img">
-          <img src="/assets/logos/launchmen-logo-1.svg" alt="Launchmen" class="strip-logo-img">
-          <img src="/assets/logos/tvg-logo-1.svg" alt="TVG" class="strip-logo-img">
-        </div>
+    /* STRIP */
+    .strip {
+      background: var(--orange);
+      padding: 18px 48px;
+      overflow: hidden;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+    .strip-inner {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .strip-label {
+      font-size: 18px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      font-weight: 600;
+      padding-left: 28px;
+      padding-right: 32px;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+    .strip-logos-wrap {
+      display: flex;
+      overflow: hidden;
+      flex: 1;
+    }
+    .strip-logos {
+      display: flex;
+      gap: 56px;
+      align-items: center;
+      animation: marquee 20s linear infinite;
+      flex-shrink: 0;
+    }
+    .strip-logos-clone {
+      display: flex;
+      gap: 56px;
+      align-items: center;
+      animation: marquee 20s linear infinite;
+      flex-shrink: 0;
+      padding-left: 56px;
+    }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+    .strip-logo {
+      font-size: 15px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.9);
+      white-space: nowrap;
+    }
+    
+<div class="strip">
+  <div class="strip-inner">
+    <div class="strip-label">EXPERIENCED AT</div>
+    <div class="strip-logos-wrap">
+      <div class="strip-logos">
+        <img src="/assets/logos/golden-owl-logo-1.svg" alt="Golden Owl" class="strip-logo">
+        <img src="/assets/logos/aseirx-logo-1.svg" alt="AesirX" class="strip-logo">
+        <img src="/assets/logos/hcl-tech-1.svg" alt="HCLTech" class="strip-logo">
+        <img src="/assets/logos/launchmen-logo-1.svg" alt="Launchmen" class="strip-logo">
+        <img src="/assets/logos/tvg-logo-1.svg" alt="TVG" class="strip-logo">
       </div>
     </div>
-  </section>
+  </div>
+</div>
 
   <!-- SERVICES GRID -->
   <section class="services-grid">
@@ -225,49 +282,48 @@
     </div>
   </section>
 
-  <!-- CTA SECTION -->
-  <section class="cta-section">
-    <h2>Let's build something <span class="orange">worth talking about.</span></h2>
-    <p>Open to full time, contract, and freelance roles in project management, content, marketing, and creative production. Based in Ho Chi Minh City — working with teams globally.</p>
-    <a href="contact.html" class="btn btn-primary">Let's talk</a>
-  </section>
+<div class="footer-cta">
+  <div class="footer-cta-inner">
+    <div>
+      <h2>Let's build something <span>worth talking</span> about.</h2>
+      <p>Open to <strong>full-time</strong>, <strong>contract</strong>, and <strong>freelance roles</strong> in project management, content, marketing, and creative production. Based in Ho Chi Minh City — working with teams globally.</p>
+      <a href="contact.html" class="btn-primary">Let's talk</a>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <div class="footer-col-label">ABOUT ME</div>
+        <a href="about.html">who am i?</a>
+        <a href="about.html">my experience</a>
+        <a href="about.html">software skills</a>
+        <a href="about.html">my education</a>
+        <a href="about.html">references</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-label">MY SERVICES</div>
+        <a href="services.html">project management</a>
+        <a href="services.html">content management</a>
+        <a href="services.html">creative design</a>
+        <a href="services.html">video editing</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-label">MY PROJECTS</div>
+        <a href="projects.html">video production</a>
+        <a href="projects.html">content writing</a>
+        <a href="projects.html">social media</a>
+        <a href="projects.html">brand builds</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2026 Trang Tran · Ho Chi Minh City, Vietnam</div>
+    <div class="footer-bottom-links">
+      <a href="https://www.linkedin.com/in/trang-tran-030243196/" target="_blank">LinkedIn</a>
+      <a href="mailto:trangtran230899@gmail.com">Email</a>
+      <a href="#">Download CV</a>
+    </div>
+  </div>
+</div>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer-content">
-      <div class="footer-col">
-        <h4>About Me</h4>
-        <ul>
-          <li><a href="about.html">who am i?</a></li>
-          <li><a href="about.html">my experience</a></li>
-          <li><a href="about.html">software skills</a></li>
-          <li><a href="about.html">my education</a></li>
-          <li><a href="about.html">references</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>My Services</h4>
-        <ul>
-          <li><a href="services.html">project management</a></li>
-          <li><a href="services.html">content managment</a></li>
-          <li><a href="services.html">creative design</a></li>
-          <li><a href="services.html">video editing</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>My Projects</h4>
-        <ul>
-          <li><a href="projects.html">project management</a></li>
-          <li><a href="projects.html">content writing</a></li>
-          <li><a href="projects.html">social media management</a></li>
-          <li><a href="projects.html">brand builds</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2025 Trang Tran. All rights reserved.</p>
-    </div>
-  </footer>
 
   <script src="js/main.js"></script>
 </body>
