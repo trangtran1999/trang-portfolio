@@ -4,36 +4,164 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Services | Trang Tran</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-  <!-- HEADER & NAV -->
-  <header class="header">
-    <div class="header-container">
-      <a href="index.html" class="logo">it's me!</a>
-      <nav class="nav">
-        <a href="about.html" class="nav-link">About Me</a>
-        <a href="services.html" class="nav-link active">My Services</a>
-        <a href="projects.html" class="nav-link">My Projects</a>
-        <a href="contact.html" class="nav-link">Contact Me</a>
-      </nav>
-    </div>
-  </header>
+    <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  <!-- HERO SECTION -->
-  <section class="hero">
-    <div class="hero-wrap">
-      <div class="hero-left">
-        <h1 class="hero-title">I make it <span class="orange">HAPPEN.</span></h1>
-        <p class="hero-subtitle">From brief to delivery — I manage the people, the process, and the details so creative work actually ships.</p>
-        <div class="hero-cta">
-          <a href="contact.html" class="btn btn-primary">Let's talk</a>
-          <a href="#" class="btn btn-link">Download CV</a>
-        </div>
-      </div>
-    </div>
-  </section>
-  
+    :root {
+      --orange: #c94a00;
+      --orange-hover: #a33d00;
+      --ink: #1a1a1a;
+      --ink2: #4a4a44;
+      --ink3: #9a9a90;
+      --paper: #f0ede8;
+      --paper2: #e8e4dd;
+      --white: #ffffff;
+      --border: #d8d4cc;
+      --radius: 8px;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      font-size: 15px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 72px;
+      height: 60px;
+      background: var(--paper);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-logo {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--ink);
+      font-style: italic;
+    }
+    .nav-links {
+      display: flex;
+      gap: 48px;
+    }
+    .nav-links a {
+      font-size: 13px;
+      color: var(--ink2);
+      text-decoration: none;
+      font-weight: 400;
+      padding-bottom: 2px;
+      border-bottom: 1px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--ink);
+      border-bottom-color: var(--orange);
+    }
+
+    /* HERO */
+    .hero-wrap {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 72px 48px 64px;
+    }
+    .hero {
+      width: 100%;
+      max-width: 1100px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 64px;
+    }
+    .hero-left {
+      flex: 1.2;
+    }
+    .hero-right {
+      flex: 0.8;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .hero-title {
+      font-size: 72px;
+      font-weight: 900;
+      line-height: 1.0;
+      letter-spacing: -2px;
+      color: var(--ink);
+    }
+    .hero-title span {
+      color: var(--orange);
+    }
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      margin-top: 32px;
+    }
+    .btn-primary {
+      background: var(--orange);
+      color: #fff;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 100px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background 0.2s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--orange-hover); }
+    .btn-download {
+      font-size: 13px;
+      color: var(--orange);
+      text-decoration: underline;
+      font-weight: 500;
+      cursor: pointer;
+      background: none;
+      border: none;
+      font-family: inherit;
+    }
+    .contact-info-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 14px;
+      color: var(--ink2);
+      text-decoration: none;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .contact-info-card:hover {
+      border-color: var(--orange);
+      transform: translateX(4px);
+    }
+    .contact-info-card .icon {
+      width: 36px;
+      height: 36px;
+      background: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 15px;
+    }
 
     /* STRIP */
     .strip {
@@ -93,6 +221,220 @@
       white-space: nowrap;
     }
 
+    /* FORM */
+    .form-wrap {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 56px 48px;
+    }
+    .form-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 48px;
+      width: 100%;
+      max-width: 600px;
+    }
+    .form-card h2 {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 32px;
+      letter-spacing: -0.5px;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink2);
+    }
+    .form-group input,
+    .form-group textarea {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 12px 16px;
+      font-size: 14px;
+      font-family: inherit;
+      color: var(--ink);
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--orange);
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: var(--ink3);
+    }
+    .form-group textarea {
+      resize: vertical;
+      min-height: 160px;
+      line-height: 1.6;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .phone-input-wrap {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .phone-flag {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 12px 14px;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--ink2);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .phone-flag span { font-size: 18px; }
+    .phone-input-wrap input { flex: 1; }
+    .btn-send {
+      background: var(--orange);
+      color: #fff;
+      border: none;
+      padding: 13px 40px;
+      border-radius: 100px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background 0.2s;
+      display: block;
+      margin: 8px auto 0;
+    }
+    .btn-send:hover { background: var(--orange-hover); }
+    .success-msg {
+      display: none;
+      background: #f0fdf4;
+      border: 1px solid #86efac;
+      border-radius: var(--radius);
+      padding: 16px;
+      text-align: center;
+      font-size: 14px;
+      color: #166534;
+      margin-top: 16px;
+    }
+    .success-msg.show { display: block; }
+
+    /* FOOTER CTA */
+    .footer-cta {
+      background: var(--paper2);
+      padding: 72px 48px 64px;
+      border-top: 1px solid var(--border);
+    }
+    .footer-cta-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .footer-cta h2 {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.25;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+    .footer-cta h2 span { color: var(--orange); }
+    .footer-cta p {
+      font-size: 13px;
+      color: var(--ink2);
+      line-height: 1.75;
+      margin-bottom: 24px;
+      font-weight: 300;
+    }
+    .footer-cols {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      padding-top: 8px;
+    }
+    .footer-col-label {
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--ink3);
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .footer-col a, .footer-col div {
+      display: block;
+      font-size: 12px;
+      color: var(--ink2);
+      text-decoration: none;
+      margin-bottom: 7px;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: var(--orange); }
+    .footer-bottom {
+      max-width: 960px;
+      margin: 32px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--ink3);
+    }
+    .footer-bottom-links { display: flex; gap: 20px; }
+    .footer-bottom-links a {
+      color: var(--ink3);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-bottom-links a:hover { color: var(--orange); }
+  </style>
+</head>
+<body>
+  <!-- HEADER & NAV -->
+  <header class="header">
+    <div class="header-container">
+      <a href="index.html" class="logo">it's me!</a>
+      <nav class="nav">
+        <a href="about.html" class="nav-link">About Me</a>
+        <a href="services.html" class="nav-link active">My Services</a>
+        <a href="projects.html" class="nav-link">My Projects</a>
+        <a href="contact.html" class="nav-link">Contact Me</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-wrap">
+      <div class="hero-left">
+        <h1 class="hero-title">I make it <span class="orange">HAPPEN.</span></h1>
+        <p class="hero-subtitle">From brief to delivery — I manage the people, the process, and the details so creative work actually ships.</p>
+        <div class="hero-cta">
+          <a href="contact.html" class="btn btn-primary">Let's talk</a>
+          <a href="#" class="btn btn-link">Download CV</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCED AT STRIPE -->
 <div class="strip">
   <div class="strip-inner">
     <div class="strip-label">EXPERIENCED AT</div>
@@ -283,7 +625,8 @@
     </div>
   </section>
 
-<div class="footer-cta">
+  <!-- FOOTER -->
+  <div class="footer-cta">
   <div class="footer-cta-inner">
     <div>
       <h2>Let's build something <span>worth talking</span> about.</h2>
