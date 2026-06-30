@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Trang Tran — Creative Project Manager</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --orange: #c94a00;
+      --orange-hover: #a33d00;
+      --ink: #1a1a1a;
+      --ink2: #4a4a44;
+      --ink3: #9a9a90;
+      --paper: #f0ede8;
+      --paper2: #e8e4dd;
+      --white: #ffffff;
+      --border: #d8d4cc;
+      --radius: 8px;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      font-size: 15px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 72px;
+      height: 60px;
+      background: var(--paper);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-logo {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--ink);
+      font-style: italic;
+    }
+    .nav-links {
+      display: flex;
+      gap: 48px;
+    }
+    .nav-links a {
+      font-size: 13px;
+      color: var(--ink2);
+      text-decoration: none;
+      font-weight: 400;
+      padding-bottom: 2px;
+      border-bottom: 1px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--ink);
+      border-bottom-color: var(--orange);
+    }
+
+    /* HERO */
+    .hero-wrap {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 72px 48px 64px;
+    }
+    .hero {
+      width: 100%;
+      max-width: 1100px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 64px;
+    }
+    .hero-left {
+      flex: 1.2;
+    }
+    .hero-right {
+      flex: 0.8;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .hero-title {
+      font-size: 72px;
+      font-weight: 900;
+      line-height: 1.0;
+      letter-spacing: -2px;
+      color: var(--ink);
+    }
+    .hero-title span {
+      color: var(--orange);
+    }
+    .hero-subtitle {
+      font-size: 15px;
+      color: var(--ink2);
+      line-height: 1.6;
+      margin-bottom: 24px;
+      font-weight: 300;
+    }
+    .hero-checklist {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .hero-checklist-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      color: var(--ink2);
+    }
+    .hero-checklist-item::before {
+      content: "✓";
+      color: var(--orange);
+      font-weight: 700;
+      font-size: 16px;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+    .btn-primary {
+      background: var(--orange);
+      color: #fff;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 100px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background 0.2s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--orange-hover); }
+    .btn-download {
+      font-size: 13px;
+      color: var(--orange);
+      text-decoration: underline;
+      font-weight: 500;
+      cursor: pointer;
+      background: none;
+      border: none;
+      font-family: inherit;
+    }
+    .hero-image {
+      width: 100%;
+      max-width: 320px;
+      border-radius: 12px;
+      object-fit: cover;
+    }
+
+    /* STRIP */
+    .strip {
+      background: var(--orange);
+      padding: 18px 48px;
+      overflow: hidden;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+    .strip-inner {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .strip-label {
+      font-size: 18px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      font-weight: 600;
+      padding-left: 28px;
+      padding-right: 32px;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+    .strip-logos-wrap {
+      display: flex;
+      overflow: hidden;
+      flex: 1;
+    }
+    .strip-logos {
+      display: flex;
+      gap: 56px;
+      align-items: center;
+      animation: marquee 20s linear infinite;
+      flex-shrink: 0;
+    }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+    .strip-logo {
+      font-size: 15px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.9);
+      white-space: nowrap;
+    }
+
+    /* SERVICES GRID */
+    .services-section {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 80px 48px;
+      background: var(--paper);
+    }
+    .services-wrap {
+      width: 100%;
+      max-width: 1100px;
+    }
+    .services-header {
+      margin-bottom: 60px;
+    }
+    .services-label {
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--orange);
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    .services-title {
+      font-size: 48px;
+      font-weight: 900;
+      color: var(--ink);
+      line-height: 1.1;
+      margin: 0;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    .service-card {
+      background: var(--white);
+      border: 2px solid var(--border);
+      border-radius: 8px;
+      padding: 32px 24px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    .service-card.featured {
+      background: var(--orange);
+      color: white;
+      border-color: var(--orange);
+    }
+    .service-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--orange);
+    }
+    .service-card.featured:hover {
+      transform: translateY(-4px);
+    }
+    .service-icon {
+      font-size: 32px;
+      margin-bottom: 16px;
+    }
+    .service-card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .service-card p {
+      font-size: 12px;
+      line-height: 1.5;
+      color: var(--ink3);
+      margin-bottom: 16px;
+    }
+    .service-card.featured p {
+      color: rgba(255,255,255,0.9);
+    }
+    .service-link {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--orange);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .service-card.featured .service-link {
+      color: white;
+    }
+
+    /* TIMELINE */
+    .timeline-section {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 80px 48px;
+      background: var(--white);
+    }
+    .timeline-wrap {
+      width: 100%;
+      max-width: 1100px;
+    }
+    .timeline-header {
+      margin-bottom: 60px;
+    }
+    .timeline-label {
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--orange);
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    .timeline-title {
+      font-size: 48px;
+      font-weight: 900;
+      color: var(--ink);
+      line-height: 1.1;
+      margin: 0;
+    }
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      position: relative;
+      padding-left: 40px;
+    }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 15px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--border);
+    }
+    .timeline-item {
+      position: relative;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -47px;
+      top: 28px;
+      width: 32px;
+      height: 32px;
+      background: var(--ink);
+      border: 3px solid var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .timeline-item:nth-child(1)::before { content: "1"; }
+    .timeline-item:nth-child(2)::before { content: "2"; }
+    .timeline-item:nth-child(3)::before { content: "3"; }
+    .timeline-item:nth-child(4)::before { content: "4"; }
+    .timeline-item:nth-child(5)::before { content: "5"; }
+    .timeline-content h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin: 0 0 4px 0;
+      color: var(--ink);
+    }
+    .timeline-company {
+      font-size: 13px;
+      color: var(--ink2);
+      margin: 0;
+    }
+    .timeline-date {
+      font-size: 13px;
+      color: var(--ink2);
+      white-space: nowrap;
+    }
+
+    /* TESTIMONIALS */
+    .testimonials-section {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 80px 48px;
+      background: var(--paper);
+    }
+    .testimonials-wrap {
+      width: 100%;
+      max-width: 1100px;
+    }
+    .testimonials-header {
+      margin-bottom: 60px;
+    }
+    .testimonials-label {
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--orange);
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    .testimonials-title {
+      font-size: 48px;
+      font-weight: 900;
+      color: var(--ink);
+      line-height: 1.1;
+      margin: 0;
+    }
+    .testimonials-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    .testimonial-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+      position: relative;
+    }
+    .testimonial-quote {
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      font-size: 32px;
+      color: var(--orange);
+      opacity: 0.3;
+    }
+    .testimonial-text {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--ink2);
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .testimonial-image {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .testimonial-info h4 {
+      font-size: 14px;
+      font-weight: 700;
+      margin: 0;
+      color: var(--ink);
+    }
+    .testimonial-role {
+      font-size: 12px;
+      color: var(--ink2);
+      margin: 0;
+    }
+
+    /* FOOTER CTA */
+    .footer-cta {
+      background: var(--paper2);
+      padding: 72px 48px 64px;
+      border-top: 1px solid var(--border);
+    }
+    .footer-cta-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .footer-cta h2 {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.25;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+    .footer-cta h2 span { color: var(--orange); }
+    .footer-cta p {
+      font-size: 13px;
+      color: var(--ink2);
+      line-height: 1.75;
+      margin-bottom: 24px;
+      font-weight: 300;
+    }
+    .footer-cols {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      padding-top: 8px;
+    }
+    .footer-col-label {
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--ink3);
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .footer-col a, .footer-col div {
+      display: block;
+      font-size: 12px;
+      color: var(--ink2);
+      text-decoration: none;
+      margin-bottom: 7px;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: var(--orange); }
+    .footer-bottom {
+      max-width: 960px;
+      margin: 32px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--ink3);
+    }
+    .footer-bottom-links { display: flex; gap: 20px; }
+    .footer-bottom-links a {
+      color: var(--ink3);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-bottom-links a:hover { color: var(--orange); }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER & NAV -->
+  <header class="header">
+    <div class="header-container">
+      <a href="index.html" class="logo">it's me!</a>
+      <nav class="nav">
+        <a href="about.html" class="nav-link">About Me</a>
+        <a href="services.html" class="nav-link">My Services</a>
+        <a href="projects.html" class="nav-link">My Projects</a>
+        <a href="contact.html" class="nav-link">Contact Me</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <div class="hero-wrap">
+    <div class="hero">
+      <div class="hero-left">
+        <h1 class="hero-title">Hello! I'm <span>Trang Tran.</span></h1>
+        <p class="hero-subtitle">Creative Project Manager</p>
+        <p class="hero-subtitle" style="color: var(--ink2); font-size: 14px; margin-bottom: 24px;">It's past delivering creative projects end-to-end for US-based clients across content, strategy, design, and video editing.</p>
+        
+        <div class="hero-checklist">
+          <div class="hero-checklist-item">End-to-end project management across creative & video teams</div>
+          <div class="hero-checklist-item">Content strategy, scripting, and editorial quality control</div>
+          <div class="hero-checklist-item">Design, video editing, and website development</div>
+        </div>
+
+        <div class="hero-actions">
+          <a href="contact.html" class="btn-primary">Let's talk</a>
+          <button class="btn-download">Download CV</button>
+        </div>
+      </div>
+      <div class="hero-right">
+        <img src="/assets/images/trang-hero.jpg" alt="Trang Tran" class="hero-image">
+      </div>
+    </div>
+  </div>
+
+  <!-- EXPERIENCED AT STRIPE -->
+  <div class="strip">
+    <div class="strip-inner">
+      <div class="strip-label">EXPERIENCED AT</div>
+      <div class="strip-logos-wrap">
+        <div class="strip-logos">
+          <img src="/assets/logos/golden-owl-logo-1.svg" alt="Golden Owl" class="strip-logo">
+          <img src="/assets/logos/aseirx-logo-1.svg" alt="AesirX" class="strip-logo">
+          <img src="/assets/logos/hcl-tech-1.svg" alt="HCLTech" class="strip-logo">
+          <img src="/assets/logos/launchmen-logo-1.svg" alt="Launchmen" class="strip-logo">
+          <img src="/assets/logos/tvg-logo-1.svg" alt="TVG" class="strip-logo">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section class="services-section">
+    <div class="services-wrap">
+      <div class="services-header">
+        <div class="services-label">my services?</div>
+        <h2 class="services-title">WHAT I BRING TO YOUR COMPANY</h2>
+      </div>
+      <div class="services-grid">
+        <div class="service-card featured">
+          <div class="service-icon">📋</div>
+          <h3>Project Management</h3>
+          <p>End-to-end delivery, team coordination, quality control</p>
+          <a href="services.html#project-management" class="service-link">Read more →</a>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">✍️</div>
+          <h3>Content Management</h3>
+          <p>Script writing, SEO content, research & fact-checking</p>
+          <a href="services.html#content-management" class="service-link">Read more →</a>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🎨</div>
+          <h3>Creative Design</h3>
+          <p>Brand identity, website design, graphic design</p>
+          <a href="services.html#creative-design" class="service-link">Read more →</a>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🎬</div>
+          <h3>Video Editing</h3>
+          <p>Short-form videos, AI visuals, video repurposing</p>
+          <a href="services.html#video-editing" class="service-link">Read more →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section class="timeline-section">
+    <div class="timeline-wrap">
+      <div class="timeline-header">
+        <div class="timeline-label">my experience?</div>
+        <h2 class="timeline-title">THE PATH THAT GOT ME HERE</h2>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h3>Project/ Content Manager</h3>
+            <p class="timeline-company">LaunchMen</p>
+          </div>
+          <div class="timeline-date">2022 - Present</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h3>Content Curator</h3>
+            <p class="timeline-company">tvG Tran</p>
+          </div>
+          <div class="timeline-date">2022 - Present</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h3>Copywriter</h3>
+            <p class="timeline-company">The Vietnam Group</p>
+          </div>
+          <div class="timeline-date">2020 - 2022</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h3>Content Specialist</h3>
+            <p class="timeline-company">AseirX & Heart-Cent</p>
+          </div>
+          <div class="timeline-date">2021 - 2022</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h3>Assistant Project Coordinator (Intern)</h3>
+            <p class="timeline-company">GoldenOwl Consulting Ltd</p>
+          </div>
+          <div class="timeline-date">2020</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials-section">
+    <div class="testimonials-wrap">
+      <div class="testimonials-header">
+        <div class="testimonials-label">references?</div>
+        <h2 class="testimonials-title">FROM PEOPLE I'VE WORKED WITH</h2>
+      </div>
+      <div class="testimonials-container">
+        <div class="testimonial-card">
+          <div class="testimonial-quote">"</div>
+          <p class="testimonial-text">Trang took charge and did the detailed, meticulous work that carried the project through. She's the kind of person who identifies gaps and plugs them in.</p>
+          <div class="testimonial-author">
+            <img src="/assets/images/hannah-nguyen.jpg" alt="Hannah Nguyen" class="testimonial-image">
+            <div>
+              <h4>Hannah Nguyen</h4>
+              <p class="testimonial-role">Content Manager at LaunchMen</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-quote">"</div>
+          <p class="testimonial-text">It's rare to find someone who can speak the language of both creative and execution. Trang does both effortlessly.</p>
+          <div class="testimonial-author">
+            <img src="/assets/images/tin-nguyen.jpg" alt="Tin Nguyen" class="testimonial-image">
+            <div>
+              <h4>Tin Nguyen</h4>
+              <p class="testimonial-role">Filmmaker & Founder at LaunchMen</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-quote">"</div>
+          <p class="testimonial-text">What sets Trang apart is her attention to detail and her ability to think strategically about content. You need people like that on every team.</p>
+          <div class="testimonial-author">
+            <img src="/assets/images/vy-nguyen.jpg" alt="Vy Nguyen" class="testimonial-image">
+            <div>
+              <h4>Vy Nguyen</h4>
+              <p class="testimonial-role">Executive Assistant at The Vietnam Group</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <div class="footer-cta">
+    <div class="footer-cta-inner">
+      <div>
+        <h2>Let's build something <span>worth talking</span> about.</h2>
+        <p>Open to <strong>full-time</strong>, <strong>contract</strong>, and <strong>freelance roles</strong> in project management, content, marketing, and creative production. Based in Ho Chi Minh City — working with teams globally.</p>
+        <a href="contact.html" class="btn-primary">Let's talk</a>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <div class="footer-col-label">ABOUT ME</div>
+          <a href="about.html">who am i?</a>
+          <a href="about.html">my experience</a>
+          <a href="about.html">software skills</a>
+          <a href="about.html">my education</a>
+          <a href="about.html">references</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-label">MY SERVICES</div>
+          <a href="services.html">project management</a>
+          <a href="services.html">content management</a>
+          <a href="services.html">creative design</a>
+          <a href="services.html">video editing</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-label">MY PROJECTS</div>
+          <a href="projects.html">video production</a>
+          <a href="projects.html">content writing</a>
+          <a href="projects.html">social media</a>
+          <a href="projects.html">brand builds</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Trang Tran · Ho Chi Minh City, Vietnam</div>
+      <div class="footer-bottom-links">
+        <a href="https://www.linkedin.com/in/trang-tran-030243196/" target="_blank">LinkedIn</a>
+        <a href="mailto:trangtran230899@gmail.com">Email</a>
+        <a href="#">Download CV</a>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
