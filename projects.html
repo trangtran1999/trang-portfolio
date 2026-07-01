@@ -121,6 +121,7 @@
     }
 
     /* ============ STRIP ============ */
+    /* STRIP */
     .strip {
       background: var(--orange);
       padding: 18px 48px;
@@ -142,6 +143,7 @@
       text-transform: uppercase;
       color: rgba(255,255,255,0.7);
       font-weight: 600;
+      padding-left: 28px;
       padding-right: 32px;
       flex-shrink: 0;
       white-space: nowrap;
@@ -158,11 +160,23 @@
       animation: marquee 20s linear infinite;
       flex-shrink: 0;
     }
+    .strip-logos-clone {
+      display: flex;
+      gap: 56px;
+      align-items: center;
+      animation: marquee 20s linear infinite;
+      flex-shrink: 0;
+      padding-left: 56px;
+    }
     @keyframes marquee {
       0% { transform: translateX(0); }
       100% { transform: translateX(-100%); }
     }
-    .strip-logo { height: 20px; width: auto; flex-shrink: 0; 
+    .strip-logo {
+      font-size: 15px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.9);
+      white-space: nowrap;
     }
 
     /* ============ CASE STUDY SECTION ============ */
@@ -613,7 +627,7 @@
           </div>
           <div class="client-card">
             <div class="client-brand">
-              <img src="/assets/logos/clients/kiyosaki-letter.svg" alt="The Kiyosaki Letter" style="height: 52px;">
+              <img src="/assets/logos/clients/kiyosaki-letter.svg" alt="The Kiyosaki Letter" style="height: 64px;">
             </div>
             <div class="client-stats">
               <div><div class="client-stat-num">$X.XM+</div><div class="client-stat-label">Revenue 2025</div></div>
