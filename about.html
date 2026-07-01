@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Me — Trang Tran</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --orange: #c94a00;
+      --orange-hover: #a33d00;
+      --ink: #1a1a1a;
+      --ink2: #4a4a44;
+      --ink3: #9a9a90;
+      --paper: #f0ede8;
+      --paper2: #e8e4dd;
+      --white: #ffffff;
+      --border: #d8d4cc;
+      --radius: 8px;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      font-size: 15px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* shared buttons (match homepage) */
+    .btn-primary {
+      background: var(--orange);
+      color: #fff;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 100px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background 0.2s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--orange-hover); }
+    .btn-download {
+      font-size: 13px;
+      color: var(--orange);
+      text-decoration: underline;
+      font-weight: 500;
+      cursor: pointer;
+      background: none;
+      border: none;
+      font-family: inherit;
+    }
+
+    /* ============ ABOUT HERO ============ */
+    .about-hero {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 56px 48px 0;
+      position: relative;
+    }
+    .about-hero-inner {
+      width: 100%;
+      max-width: 1100px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-bottom: 48px;
+    }
+    .about-hero-name {
+      font-size: 128px;
+      font-weight: 900;
+      letter-spacing: -4px;
+      color: var(--orange);
+      line-height: 1;
+      text-align: center;
+      white-space: nowrap;
+      user-select: none;
+    }
+    .about-hero-photo {
+      width: 340px;
+      height: 420px;
+      object-fit: cover;
+      border-radius: 4px;
+      margin-top: -180px;
+      box-shadow: 0 20px 40px rgba(26,26,26,0.15);
+      position: relative;
+      z-index: 2;
+    }
+    .about-hero-actions {
+      width: 100%;
+      max-width: 1100px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: -32px;
+      position: relative;
+      z-index: 3;
+    }
+
+    /* ============ STRIP (shared look, local override for gap) ============ */
+    /* uses .strip / .strip-inner / .strip-label / .strip-logos-wrap / .strip-logos / .strip-logo from style.css */
+
+    /* ============ ABOUT ME / ACCORDION ============ */
+    .about-section {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 80px 48px;
+      background: var(--paper);
+    }
+    .about-section-inner {
+      width: 100%;
+      max-width: 1100px;
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 64px;
+    }
+    .eyebrow {
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--orange);
+      font-weight: 600;
+      margin-bottom: 16px;
+      position: relative;
+      padding-left: 32px;
+    }
+    .eyebrow::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 20px;
+      height: 1px;
+      background: var(--orange);
+    }
+    .about-left h2 {
+      font-size: 40px;
+      font-weight: 900;
+      line-height: 1.1;
+      color: var(--ink);
+      text-transform: uppercase;
+      margin-bottom: 32px;
+    }
+    .about-tagline {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.4;
+      margin-bottom: 12px;
+    }
+    .about-tagline span { color: var(--orange); }
+    .about-tagline-sub {
+      font-size: 13px;
+      color: var(--ink2);
+      line-height: 1.75;
+      font-weight: 300;
+    }
+
+    /* accordion */
+    .accordion-item {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 24px;
+      margin-bottom: 24px;
+    }
+    .accordion-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    .accordion-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      gap: 16px;
+    }
+    .accordion-header h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: 0.3px;
+    }
+    .accordion-toggle {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--orange);
+      transition: transform 0.25s ease;
+    }
+    .accordion-item.open .accordion-toggle {
+      transform: rotate(180deg);
+    }
+    .accordion-body {
+      overflow: hidden;
+      max-height: 500px;
+      transition: max-height 0.3s ease, margin-top 0.3s ease;
+      margin-top: 16px;
+      font-size: 14px;
+      color: var(--ink2);
+      line-height: 1.75;
+      font-weight: 300;
+    }
+    .accordion-item:not(.open) .accordion-body {
+      max-height: 0;
+      margin-top: 0;
+    }
+    .accordion-body p { margin-bottom: 14px; }
+    .accordion-body p:last-child { margin-bottom: 0; }
+    .accordion-body strong { color: var(--ink); font-weight: 700; }
+
+    /* ============ ROLES ============ */
+    .roles-section {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 80px 48px;
+      background: var(--white);
+    }
+    .roles-wrap { width: 100%; max-width: 1100px; }
+    .roles-header { margin-bottom: 48px; }
+    .roles-header h2 {
+      font-size: 40px;
+      font-weight: 900;
+      line-height: 1.1;
+      color: var(--ink);
+      text-transform: uppercase;
+    }
+    .roles-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .role-card {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      border: 1px solid var(--border);
+      border-bottom: 2px solid var(--orange);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      transition: box-shadow 0.2s;
+    }
+    .role-card:hover { box-shadow: 0 6px 16px rgba(26,26,26,0.06); }
+    .role-number {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      background: var(--ink);
+      color: white;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .role-content { flex: 1; }
+    .role-content h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 2px;
+    }
+    .role-company {
+      font-size: 13px;
+      color: var(--ink2);
+    }
+    .role-date {
+      flex-shrink: 0;
+      font-size: 13px;
+      color: var(--ink2);
+      white-space: nowrap;
+      border-left: 1px solid var(--border);
+      padding-left: 20px;
+    }
+
+    /* ============ TOOLS & PLATFORMS ============ */
+    .tools-section {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 80px 48px;
+      background: var(--paper);
+    }
+    .tools-wrap { width: 100%; max-width: 1100px; }
+    .tools-header { margin-bottom: 48px; }
+    .tools-header h2 {
+      font-size: 40px;
+      font-weight: 900;
+      line-height: 1.1;
+      color: var(--ink);
+      text-transform: uppercase;
+    }
+    .tools-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .tools-category h3 {
+      text-align: center;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--ink);
+      margin-bottom: 16px;
+    }
+    .tools-box {
+      border: 1.5px solid var(--orange);
+      border-radius: 12px;
+      padding: 24px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      background: var(--white);
+    }
+    .tool-icon {
+      width: 56px;
+      height: 56px;
+      margin: 0 auto;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--white);
+    }
+    .tool-icon img {
+      width: 32px;
+      height: 32px;
+      object-fit: contain;
+    }
+
+    /* ============ EDUCATION ============ */
+    .education-section {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 80px 48px;
+      background: var(--white);
+    }
+    .education-wrap { width: 100%; max-width: 1100px; }
+    .education-header { margin-bottom: 48px; }
+    .education-header h2 {
+      font-size: 40px;
+      font-weight: 900;
+      line-height: 1.1;
+      color: var(--ink);
+      text-transform: uppercase;
+    }
+    .education-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .education-row:last-child { border-bottom: none; }
+    .education-info h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+    .education-info p {
+      font-size: 13px;
+      color: var(--ink2);
+    }
+    .education-date {
+      flex-shrink: 0;
+      font-size: 13px;
+      color: var(--ink2);
+      white-space: nowrap;
+      border-left: 1px solid var(--border);
+      padding-left: 20px;
+      text-align: right;
+      min-width: 110px;
+    }
+
+    /* ============ TESTIMONIALS ============ */
+    .testimonials-section {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 80px 48px 56px;
+      background: var(--paper);
+    }
+    .testimonials-wrap { width: 100%; max-width: 1100px; }
+    .testimonials-header { margin-bottom: 48px; }
+    .testimonials-header h2 {
+      font-size: 40px;
+      font-weight: 900;
+      line-height: 1.1;
+      color: var(--ink);
+      text-transform: uppercase;
+    }
+    .testimonials-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    .testimonial-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+      position: relative;
+    }
+    .testimonial-quote {
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      font-size: 32px;
+      color: var(--orange);
+      opacity: 0.3;
+    }
+    .testimonial-author-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--orange);
+      margin-bottom: 8px;
+    }
+    .testimonial-text {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--ink2);
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .testimonial-image {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .testimonial-info h4 {
+      font-size: 14px;
+      font-weight: 700;
+      margin: 0;
+      color: var(--ink);
+    }
+    .testimonial-role {
+      font-size: 12px;
+      color: var(--ink2);
+      margin: 0;
+    }
+    .testimonial-dots {
+      display: none;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 32px;
+    }
+    .testimonial-dots span {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--border);
+    }
+    .testimonial-dots span.active { background: var(--orange); }
+
+    /* ============ FOOTER CTA (matches homepage) ============ */
+    .footer-cta {
+      background: var(--paper2);
+      padding: 72px 48px 64px;
+      border-top: 1px solid var(--border);
+    }
+    .footer-cta-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .footer-cta h2 {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.25;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+    .footer-cta h2 span { color: var(--orange); }
+    .footer-cta p {
+      font-size: 13px;
+      color: var(--ink2);
+      line-height: 1.75;
+      margin-bottom: 24px;
+      font-weight: 300;
+    }
+    .footer-cols {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      padding-top: 8px;
+    }
+    .footer-col-label {
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--ink3);
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .footer-col a, .footer-col div {
+      display: block;
+      font-size: 12px;
+      color: var(--ink2);
+      text-decoration: none;
+      margin-bottom: 7px;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: var(--orange); }
+    .footer-bottom {
+      max-width: 960px;
+      margin: 32px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--ink3);
+    }
+    .footer-bottom-links { display: flex; gap: 20px; }
+    .footer-bottom-links a {
+      color: var(--ink3);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-bottom-links a:hover { color: var(--orange); }
+
+    /* ============ RESPONSIVE ============ */
+    @media (max-width: 900px) {
+      .about-hero-name { font-size: 64px; letter-spacing: -2px; }
+      .about-hero-photo { width: 220px; height: 280px; margin-top: -100px; }
+      .about-hero-actions { flex-direction: column; gap: 16px; margin-top: 24px; }
+      .about-section-inner { grid-template-columns: 1fr; gap: 32px; }
+      .tools-grid { grid-template-columns: 1fr; }
+      .roles-header h2, .tools-header h2, .education-header h2, .testimonials-header h2 { font-size: 28px; }
+      .role-card { flex-wrap: wrap; }
+      .testimonials-container { grid-template-columns: 1fr; }
+      .footer-cta-inner { grid-template-columns: 1fr; }
+      .footer-cols { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER & NAV -->
+  <header class="header">
+    <div class="header-container">
+      <a href="index.html" class="logo">it's me!</a>
+      <nav class="nav">
+        <a href="about.html" class="nav-link active">About Me</a>
+        <a href="services.html" class="nav-link">My Services</a>
+        <a href="projects.html" class="nav-link">My Projects</a>
+        <a href="contact.html" class="nav-link">Contact Me</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ABOUT HERO -->
+  <div class="about-hero">
+    <div class="about-hero-inner">
+      <div class="about-hero-name">TRANG TRAN</div>
+      <img src="/assets/images/trang-about-hero.jpg" alt="Trang Tran" class="about-hero-photo">
+    </div>
+  </div>
+  <div class="about-hero-actions" style="padding: 0 48px 56px; max-width: 1100px; margin-left: auto; margin-right: auto;">
+    <a href="contact.html" class="btn-primary">Let's talk</a>
+    <a href="/assets/cv/trang-tran-cv.pdf" class="btn-download" target="_blank">Download CV</a>
+  </div>
+
+  <!-- EXPERIENCED AT STRIP -->
+  <div class="strip">
+    <div class="strip-inner">
+      <div class="strip-label">EXPERIENCED AT</div>
+      <div class="strip-logos-wrap">
+        <div class="strip-logos">
+          <img src="/assets/logos/golden-owl-logo-1.svg" alt="Golden Owl" class="strip-logo">
+          <img src="/assets/logos/aseirx-logo-1.svg" alt="AesirX" class="strip-logo">
+          <img src="/assets/logos/hcl-tech-1.svg" alt="HCLTech" class="strip-logo">
+          <img src="/assets/logos/launchmen-logo-1.svg" alt="Launchmen" class="strip-logo">
+          <img src="/assets/logos/tvg-logo-1.svg" alt="TVG" class="strip-logo">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- A BIT ABOUT ME -->
+  <section class="about-section">
+    <div class="about-section-inner">
+      <div class="about-left">
+        <div class="eyebrow">who am i?</div>
+        <h2>A Bit<br>About Me</h2>
+        <p class="about-tagline">Let's build something<br><span>worth talking</span> about.</p>
+      </div>
+      <div class="about-right">
+
+        <div class="accordion-item open">
+          <div class="accordion-header">
+            <h3>1. MY BACKGROUND AND STORY</h3>
+            <span class="accordion-toggle">▾</span>
+          </div>
+          <div class="accordion-body">
+            <p>My career really began as a copywriter, a natural extension of my university background in English Linguistics &amp; Literature, with a focus on US and UK culture. Words were where I started and they've stayed at the core of everything I do since.</p>
+            <p>When I joined Launchmen, I came on as a Content Specialist. But in a startup, you rarely stay in one lane. My boss saw potential beyond writing and transitioned me into a <strong>Creative Project Manager role</strong>, training me to manage, write, and design across the board. That environment taught me more than I could have imagined — how to wear multiple hats, move fast and own a project from concept to delivery.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item open">
+          <div class="accordion-header">
+            <h3>2. WHAT I VALUE</h3>
+            <span class="accordion-toggle">▾</span>
+          </div>
+          <div class="accordion-body">
+            <p>A good project manager needs three things: to be likable, organized, and just worried enough.</p>
+            <p><strong>Likable</strong>, because projects move through people.</p>
+            <p><strong>Organized</strong>, because someone has to hold the moving parts together.</p>
+            <p><strong>Worried</strong> enough, because a little concern is what catches small problems before they grow.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item open">
+          <div class="accordion-header">
+            <h3>3. HOW I WORK</h3>
+            <span class="accordion-toggle">▾</span>
+          </div>
+          <div class="accordion-body">
+            <p>I'm decisive, detail-oriented, and responsible.</p>
+            <p><strong>Decisive</strong>, because momentum matters and a project can't wait on indecision.</p>
+            <p><strong>Detail-oriented</strong>, because the small things are usually where quality lives or dies.</p>
+            <p>And <strong>responsible</strong>, because when I'm in charge of something, I own the outcome — I don't pass blame for what was mine to carry.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item open">
+          <div class="accordion-header">
+            <h3>4. WHAT I'M LOOKING FOR</h3>
+            <span class="accordion-toggle">▾</span>
+          </div>
+          <div class="accordion-body">
+            <p>Somewhere I can <strong>keep building</strong> — skills, knowledge and range. I don't want to be the kind of PM who only communicates and tracks progress. I want to understand how each part of a project actually works: development, editing, writing, design, QC, and everything in between. Enough to step in and handle it myself when someone on the team is out. For me, the goal isn't just to manage the work, it's to truly understand it.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- THE ROLES THAT BUILT ME -->
+  <section class="roles-section">
+    <div class="roles-wrap">
+      <div class="roles-header">
+        <div class="eyebrow">my experience?</div>
+        <h2>The Roles<br>That Built Me</h2>
+      </div>
+      <div class="roles-list">
+        <div class="role-card">
+          <div class="role-number">1</div>
+          <div class="role-content">
+            <h3>Project/ Content Manager</h3>
+            <p class="role-company">Launchmen</p>
+          </div>
+          <div class="role-date">2022 - Present</div>
+        </div>
+        <div class="role-card">
+          <div class="role-number">2</div>
+          <div class="role-content">
+            <h3>Content Curator</h3>
+            <p class="role-company">HCLTech</p>
+          </div>
+          <div class="role-date">2022 - Present</div>
+        </div>
+        <div class="role-card">
+          <div class="role-number">3</div>
+          <div class="role-content">
+            <h3>Copywriter</h3>
+            <p class="role-company">The Vietnam Group</p>
+          </div>
+          <div class="role-date">2020 - 2022</div>
+        </div>
+        <div class="role-card">
+          <div class="role-number">4</div>
+          <div class="role-content">
+            <h3>Content Specialist</h3>
+            <p class="role-company">AesirX &amp; Next Gen</p>
+          </div>
+          <div class="role-date">2021 - 2022</div>
+        </div>
+        <div class="role-card">
+          <div class="role-number">5</div>
+          <div class="role-content">
+            <h3>Assistant Project Coordinator (Intern)</h3>
+            <p class="role-company">Golden Owl Consulting Ltd</p>
+          </div>
+          <div class="role-date">2020</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOOLS & PLATFORMS -->
+  <section class="tools-section">
+    <div class="tools-wrap">
+      <div class="tools-header">
+        <div class="eyebrow">software skills?</div>
+        <h2>Tools &amp; Platforms</h2>
+      </div>
+      <div class="tools-grid">
+
+        <div class="tools-category">
+          <h3>Project Management</h3>
+          <div class="tools-box">
+            <div class="tool-icon"><img src="/assets/icons/pm/asana.svg" alt="Asana"></div>
+            <div class="tool-icon"><img src="/assets/icons/pm/clickup.svg" alt="ClickUp"></div>
+            <div class="tool-icon"><img src="/assets/icons/pm/gmail.svg" alt="Gmail"></div>
+            <div class="tool-icon"><img src="/assets/icons/pm/google-doc.svg" alt="Google Docs"></div>
+            <div class="tool-icon"><img src="/assets/icons/pm/google-drive.svg" alt="Google Drive"></div>
+            <div class="tool-icon"><img src="/assets/icons/pm/google-sheets.svg" alt="Google Sheets"></div>
+          </div>
+        </div>
+
+        <div class="tools-category">
+          <h3>AI Tools</h3>
+          <div class="tools-box">
+            <div class="tool-icon"><img src="/assets/icons/ai/11labs.svg" alt="ElevenLabs"></div>
+            <div class="tool-icon"><img src="/assets/icons/ai/chatgpt.svg" alt="ChatGPT"></div>
+            <div class="tool-icon"><img src="/assets/icons/ai/claude.svg" alt="Claude"></div>
+            <div class="tool-icon"><img src="/assets/icons/ai/heygen.svg" alt="HeyGen"></div>
+            <div class="tool-icon"><img src="/assets/icons/ai/krea.svg" alt="Krea"></div>
+            <div class="tool-icon"><img src="/assets/icons/ai/midjourney.svg" alt="Midjourney"></div>
+          </div>
+        </div>
+
+        <div class="tools-category">
+          <h3>Design &amp; Editing</h3>
+          <div class="tools-box" style="grid-template-columns: repeat(3, 1fr);">
+            <div class="tool-icon"><img src="/assets/icons/design/capcut.svg" alt="CapCut"></div>
+            <div class="tool-icon"><img src="/assets/icons/design/figma.svg" alt="Figma"></div>
+            <div class="tool-icon"><img src="/assets/icons/design/illustrator.svg" alt="Illustrator"></div>
+            <div class="tool-icon"><img src="/assets/icons/design/photoshop.svg" alt="Photoshop"></div>
+          </div>
+        </div>
+
+        <div class="tools-category">
+          <h3>Website Development</h3>
+          <div class="tools-box" style="grid-template-columns: repeat(3, 1fr);">
+            <div class="tool-icon"><img src="/assets/icons/web/elementor.svg" alt="Elementor"></div>
+            <div class="tool-icon"><img src="/assets/icons/web/netlify.svg" alt="Netlify"></div>
+            <div class="tool-icon"><img src="/assets/icons/web/vscode.svg" alt="VS Code"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- DEGREES & CERTIFICATIONS -->
+  <section class="education-section">
+    <div class="education-wrap">
+      <div class="education-header">
+        <div class="eyebrow">my education?</div>
+        <h2>Degrees &amp; Certifications</h2>
+      </div>
+
+      <div class="education-row">
+        <div class="education-info">
+          <h3>University of Social Sciences and Humanities</h3>
+          <p>Bachelor of Arts in English Linguistic and Literature (GPA: 3.4)</p>
+        </div>
+        <div class="education-date">2017 - 2021</div>
+      </div>
+
+      <div class="education-row">
+        <div class="education-info">
+          <h3>University of Social Sciences and Humanities</h3>
+          <p>TF-SCALE Full Scholarship (Singapore)</p>
+        </div>
+        <div class="education-date">2020</div>
+      </div>
+
+      <div class="education-row">
+        <div class="education-info">
+          <h3>Arena Multimedia</h3>
+          <p>Certificate of Completion | Graphic Design Course</p>
+        </div>
+        <div class="education-date">2025</div>
+      </div>
+
+      <div class="education-row">
+        <div class="education-info">
+          <h3>Arena Multimedia</h3>
+          <p>The Best Project of Semester</p>
+        </div>
+        <div class="education-date">2026</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials-section">
+    <div class="testimonials-wrap">
+      <div class="testimonials-header">
+        <div class="eyebrow">references?</div>
+        <h2>From People I've<br>Worked With</h2>
+      </div>
+      <div class="testimonials-container" id="testimonialsContainer">
+        <div class="testimonial-card">
+          <div class="testimonial-quote">"</div>
+          <div class="testimonial-author-name">Hannah Nguyen</div>
+          <p class="testimonial-text">Trang took charge and did the detailed, meticulous work that carried the project through. She's the kind of person who identifies gaps and plugs them in.</p>
+          <div class="testimonial-author">
+            <img src="/assets/images/hannah-nguyen.jpg" alt="Hannah Nguyen" class="testimonial-image">
+            <div>
+              <h4>Hannah Nguyen</h4>
+              <p class="testimonial-role">Content Manager at Launchmen</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-quote">"</div>
+          <div class="testimonial-author-name">Tin Nguyen</div>
+          <p class="testimonial-text">It's truly a blessing to have had the opportunity to work alongside Taylor. Executive Assistant at Launchmen.</p>
+          <div class="testimonial-author">
+            <img src="/assets/images/tin-nguyen.jpg" alt="Tin Nguyen" class="testimonial-image">
+            <div>
+              <h4>Tin Nguyen</h4>
+              <p class="testimonial-role">Executive Assistant at Launchmen</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-quote">"</div>
+          <div class="testimonial-author-name">Vy Nguyen</div>
+          <p class="testimonial-text">What sets Taylor apart is her rare meticulous attention to detail and a genuine care for the people around her.</p>
+          <div class="testimonial-author">
+            <img src="/assets/images/vy-nguyen.jpg" alt="Vy Nguyen" class="testimonial-image">
+            <div>
+              <h4>Vy Nguyen</h4>
+              <p class="testimonial-role">Executive Assistant at The Vietnam Group</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-dots" id="testimonialDots">
+        <span class="active"></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <div class="footer-cta">
+    <div class="footer-cta-inner">
+      <div>
+        <h2>Let's build something <span>worth talking</span> about.</h2>
+        <p>Open to <strong>full-time</strong>, <strong>contract</strong>, and <strong>freelance roles</strong> in project management, content, marketing, and creative production. Based in Ho Chi Minh City — working with teams globally.</p>
+        <a href="contact.html" class="btn-primary">Let's talk</a>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <div class="footer-col-label">ABOUT ME</div>
+          <a href="about.html">who am i?</a>
+          <a href="about.html">my experience</a>
+          <a href="about.html">software skills</a>
+          <a href="about.html">my education</a>
+          <a href="about.html">references</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-label">MY SERVICES</div>
+          <a href="services.html">project management</a>
+          <a href="services.html">content management</a>
+          <a href="services.html">creative design</a>
+          <a href="services.html">video editing</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-label">MY PROJECTS</div>
+          <a href="projects.html">video production</a>
+          <a href="projects.html">content writing</a>
+          <a href="projects.html">social media</a>
+          <a href="projects.html">brand builds</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Trang Tran · Ho Chi Minh City, Vietnam</div>
+      <div class="footer-bottom-links">
+        <a href="https://www.linkedin.com/in/trang-tran-030243196/" target="_blank">LinkedIn</a>
+        <a href="mailto:trangtran230899@gmail.com">Email</a>
+        <a href="/assets/cv/trang-tran-cv.pdf" target="_blank">Download CV</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Accordion toggle
+    document.querySelectorAll('.accordion-header').forEach(function (header) {
+      header.addEventListener('click', function () {
+        header.closest('.accordion-item').classList.toggle('open');
+      });
+    });
+
+    // Testimonial dots (updates on mobile horizontal scroll, harmless on desktop grid)
+    var container = document.getElementById('testimonialsContainer');
+    var dots = document.querySelectorAll('#testimonialDots span');
+    if (container && dots.length) {
+      container.addEventListener('scroll', function () {
+        var index = Math.round(container.scrollLeft / container.clientWidth);
+        dots.forEach(function (dot, i) {
+          dot.classList.toggle('active', i === index);
+        });
+      });
+    }
+  </script>
+
+</body>
+</html>
