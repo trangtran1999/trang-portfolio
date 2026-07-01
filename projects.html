@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Projects — Trang Tran</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --orange: #c94a00;
+      --orange-hover: #a33d00;
+      --tan: #cbb89a;
+      --navy2: #3d4652;
+      --ink: #1a1a1a;
+      --ink2: #4a4a44;
+      --ink3: #9a9a90;
+      --paper: #f0ede8;
+      --paper2: #e8e4dd;
+      --white: #ffffff;
+      --border: #d8d4cc;
+      --radius: 8px;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      font-size: 15px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .btn-primary {
+      background: var(--orange);
+      color: #fff;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 100px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background 0.2s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--orange-hover); }
+    .btn-download {
+      font-size: 13px;
+      color: var(--orange);
+      text-decoration: underline;
+      font-weight: 500;
+      cursor: pointer;
+      background: none;
+      border: none;
+      font-family: inherit;
+    }
+
+    /* ============ HERO ============ */
+    .projects-hero {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 72px 48px 48px;
+    }
+    .projects-hero-inner {
+      width: 100%;
+      max-width: 1100px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    .projects-hero-title {
+      font-size: 48px;
+      font-weight: 900;
+      line-height: 1.15;
+      color: var(--ink);
+      max-width: 520px;
+    }
+    .projects-hero-title span { color: var(--orange); }
+    .filter-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: flex-end;
+    }
+    .filter-btn {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+      padding: 10px 22px;
+      border-radius: 100px;
+      border: 1.5px solid var(--border);
+      background: var(--white);
+      color: var(--ink2);
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .filter-btn:hover {
+      border-color: var(--orange);
+      color: var(--orange);
+    }
+    .filter-btn.active {
+      background: var(--orange);
+      border-color: var(--orange);
+      color: white;
+    }
+    .projects-hero-actions {
+      display: flex;
+      gap: 16px;
+      margin-top: 24px;
+      align-items: center;
+    }
+
+    /* ============ STRIP ============ */
+    .strip {
+      background: var(--orange);
+      padding: 18px 48px;
+      overflow: hidden;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+    .strip-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .strip-left { display: flex; align-items: center; }
+    .strip-label {
+      font-size: 18px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      font-weight: 600;
+      padding-right: 32px;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+    .strip-logos-wrap {
+      display: flex;
+      overflow: hidden;
+    }
+    .strip-logos {
+      display: flex;
+      gap: 56px;
+      align-items: center;
+      animation: marquee 20s linear infinite;
+      flex-shrink: 0;
+    }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+    .strip-logo { height: 20px; width: auto; flex-shrink: 0; }
+    .strip-badge {
+      flex-shrink: 0;
+      background: rgba(255,255,255,0.15);
+      border: 1.5px solid rgba(255,255,255,0.5);
+      color: white;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 9px 22px;
+      border-radius: 100px;
+      white-space: nowrap;
+      margin-left: 24px;
+    }
+
+    /* ============ CASE STUDY SECTION ============ */
+    .case-section {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 64px 48px 0;
+      background: var(--paper);
+      scroll-margin-top: 24px;
+    }
+    .case-inner { width: 100%; max-width: 1100px; }
+
+    .case-summary {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 40px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid var(--border);
+    }
+    .case-summary h3 {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--orange);
+      margin-bottom: 12px;
+    }
+    .case-summary p {
+      font-size: 14px;
+      color: var(--ink2);
+      line-height: 1.7;
+      font-weight: 300;
+      margin-bottom: 12px;
+    }
+    .case-summary ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .case-summary li {
+      font-size: 14px;
+      color: var(--ink2);
+      line-height: 1.6;
+      font-weight: 300;
+      padding-left: 16px;
+      position: relative;
+    }
+    .case-summary li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: var(--orange);
+    }
+    .case-summary strong { color: var(--ink); font-weight: 600; }
+
+    /* ============ CLIENTS ============ */
+    .clients-block { padding: 56px 0; border-bottom: 1px solid var(--border); }
+    .clients-block h2 {
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--ink);
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+    .clients-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .client-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      background: var(--white);
+    }
+    .client-brand { display: flex; align-items: center; gap: 12px; }
+    .client-brand img { height: 28px; width: auto; }
+    .client-brand span {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--ink);
+      text-transform: uppercase;
+    }
+    .client-stats { display: flex; gap: 28px; text-align: right; }
+    .client-stat-num { font-size: 18px; font-weight: 800; color: var(--orange); }
+    .client-stat-label { font-size: 11px; color: var(--ink3); text-transform: uppercase; letter-spacing: 0.5px; }
+
+    /* ============ PIPELINE ============ */
+    .pipeline-block { padding: 56px 0; border-bottom: 1px solid var(--border); }
+    .pipeline-block h2 {
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--ink);
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+    .pipeline-wrap { display: flex; gap: 40px; align-items: flex-start; flex-wrap: wrap; }
+    .pipeline-legend {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      min-width: 160px;
+    }
+    .legend-item { display: flex; align-items: center; gap: 10px; font-size: 12px; color: var(--ink2); line-height: 1.4; }
+    .legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+    .legend-dot.orange { background: var(--orange); }
+    .legend-dot.tan { background: var(--tan); }
+    .legend-dot.navy { background: var(--navy2); }
+    .pipeline-steps {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      min-width: 280px;
+    }
+    .step {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      border-radius: 100px;
+      color: white;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .step-num { font-size: 12px; font-weight: 800; opacity: 0.85; }
+    .step-orange { background: var(--orange); }
+    .step-tan { background: var(--tan); color: var(--ink); }
+    .step-tan .step-num { color: var(--ink); }
+    .step-navy { background: var(--navy2); }
+    .pipeline-full-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--orange);
+      text-decoration: none;
+    }
+
+    /* ============ OUTSTANDING PROJECTS ============ */
+    .outstanding-block { padding: 56px 0 64px; }
+    .outstanding-block h2 {
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--ink);
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+    .client-group { margin-bottom: 40px; }
+    .client-group:last-child { margin-bottom: 0; }
+    .client-group-label {
+      background: var(--paper2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 10px 20px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--ink);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 16px;
+    }
+    .project-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .project-card { }
+    .project-link {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .project-link:hover { opacity: 0.85; }
+    .project-card-label {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+    .project-card-label .num { color: var(--orange); }
+    .project-thumb {
+      width: 100%;
+      aspect-ratio: 16/10;
+      border-radius: var(--radius);
+      background: var(--paper2);
+      border: 1px solid var(--border);
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ============ PLACEHOLDER SECTIONS ============ */
+    .placeholder-block {
+      padding: 64px 48px 96px;
+      display: flex;
+      justify-content: center;
+    }
+    .placeholder-inner {
+      width: 100%;
+      max-width: 1100px;
+      border: 1.5px dashed var(--border);
+      border-radius: 12px;
+      padding: 64px 40px;
+      text-align: center;
+    }
+    .placeholder-inner h2 {
+      font-size: 28px;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: var(--ink);
+      margin-bottom: 12px;
+    }
+    .placeholder-inner p {
+      font-size: 14px;
+      color: var(--ink3);
+    }
+
+    /* ============ FOOTER CTA ============ */
+    .footer-cta {
+      background: var(--paper2);
+      padding: 72px 48px 64px;
+      border-top: 1px solid var(--border);
+    }
+    .footer-cta-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .footer-cta h2 {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.25;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+    .footer-cta h2 span { color: var(--orange); }
+    .footer-cta p {
+      font-size: 13px;
+      color: var(--ink2);
+      line-height: 1.75;
+      margin-bottom: 24px;
+      font-weight: 300;
+    }
+    .footer-cols {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      padding-top: 8px;
+    }
+    .footer-col-label {
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--ink3);
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .footer-col a, .footer-col div {
+      display: block;
+      font-size: 12px;
+      color: var(--ink2);
+      text-decoration: none;
+      margin-bottom: 7px;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: var(--orange); }
+    .footer-bottom {
+      max-width: 960px;
+      margin: 32px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--ink3);
+    }
+    .footer-bottom-links { display: flex; gap: 20px; }
+    .footer-bottom-links a {
+      color: var(--ink3);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-bottom-links a:hover { color: var(--orange); }
+
+    /* ============ RESPONSIVE ============ */
+    @media (max-width: 900px) {
+      .projects-hero-inner { flex-direction: column; }
+      .filter-buttons { align-items: flex-start; width: 100%; }
+      .case-summary { grid-template-columns: 1fr; gap: 24px; }
+      .clients-grid { grid-template-columns: 1fr; }
+      .pipeline-steps { grid-template-columns: 1fr 1fr; }
+      .project-grid { grid-template-columns: 1fr; }
+      .strip-inner { flex-direction: column; gap: 16px; align-items: flex-start; }
+      .strip-badge { margin-left: 0; }
+      .footer-cta-inner { grid-template-columns: 1fr; }
+      .footer-cols { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER & NAV -->
+  <header class="header">
+    <div class="header-container">
+      <a href="index.html" class="logo">it's me!</a>
+      <nav class="nav">
+        <a href="about.html" class="nav-link">About Me</a>
+        <a href="services.html" class="nav-link">My Services</a>
+        <a href="projects.html" class="nav-link active">My Projects</a>
+        <a href="contact.html" class="nav-link">Contact Me</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <div class="projects-hero">
+    <div class="projects-hero-inner">
+      <div>
+        <h1 class="projects-hero-title">The work I've done.<br>For <span>real clients.</span></h1>
+        <div class="projects-hero-actions">
+          <a href="contact.html" class="btn-primary">Let's talk</a>
+          <a href="contact.html" class="btn-download">Contact me</a>
+        </div>
+      </div>
+      <div class="filter-buttons">
+        <a href="#video-production" class="filter-btn active">Video Production</a>
+        <a href="#content-writing" class="filter-btn">Content Writing</a>
+        <a href="#social-media-management" class="filter-btn">Social Media Management</a>
+        <a href="#brand-builds" class="filter-btn">Brand Builds</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- STRIP -->
+  <div class="strip">
+    <div class="strip-inner">
+      <div class="strip-left">
+        <div class="strip-label">EXPERIENCED AT</div>
+        <div class="strip-logos-wrap">
+          <div class="strip-logos">
+            <img src="/assets/logos/golden-owl-logo-1.svg" alt="Golden Owl" class="strip-logo">
+            <img src="/assets/logos/aseirx-logo-1.svg" alt="AesirX" class="strip-logo">
+            <img src="/assets/logos/hcl-tech-1.svg" alt="HCLTech" class="strip-logo">
+            <img src="/assets/logos/launchmen-logo-1.svg" alt="Launchmen" class="strip-logo">
+            <img src="/assets/logos/tvg-logo-1.svg" alt="TVG" class="strip-logo">
+          </div>
+        </div>
+      </div>
+      <div class="strip-badge" id="activeBadge">Video Production</div>
+    </div>
+  </div>
+
+  <!-- ============ VIDEO PRODUCTION ============ -->
+  <section class="case-section" id="video-production">
+    <div class="case-inner">
+
+      <div class="case-summary">
+        <div>
+          <h3>Overview</h3>
+          <p>I've managed end-to-end video production for some of the biggest names in US financial publishing. Each project ran through a <strong>10-step production pipeline</strong>, coordinating a team of <strong>10+</strong> across content, script, and video.</p>
+        </div>
+        <div>
+          <h3>Challenges</h3>
+          <ul>
+            <li>Clients run <strong>50–70 page scripts</strong> that expect strict brand standards, and every claim needs to be accurate before a script even goes to camera.</li>
+            <li>Timelines are tight, revisions are frequent.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>My Roles</h3>
+          <ul>
+            <li>Managed <strong>100+ video projects</strong> end-to-end over 4 years.</li>
+            <li>Led <strong>script diagnosis</strong> and <strong>visual direction</strong> for every production.</li>
+            <li>Translated 50–70 page scripts into <strong>clear briefs</strong> for designers and editors.</li>
+            <li>Served as the primary <strong>liaison</strong> between US-based clients and the internal team.</li>
+            <li>Conducted <strong>QC</strong> on every deliverable before client handoff.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="clients-block">
+        <h2>Clients</h2>
+        <div class="clients-grid">
+          <div class="client-card">
+            <div class="client-brand">
+              <img src="/assets/logos/clients/grey-swan.svg" alt="Grey Swan">
+              <span>Grey Swan Investment Fraternity</span>
+            </div>
+            <div class="client-stats">
+              <div><div class="client-stat-num">$X.XM+</div><div class="client-stat-label">Revenue 2025</div></div>
+              <div><div class="client-stat-num">XXX+</div><div class="client-stat-label">Sales Orders</div></div>
+            </div>
+          </div>
+          <div class="client-card">
+            <div class="client-brand">
+              <img src="/assets/logos/clients/strategic-fortunes.svg" alt="Strategic Fortunes">
+              <span>Strategic Fortunes</span>
+            </div>
+            <div class="client-stats">
+              <div><div class="client-stat-num">$X.XM+</div><div class="client-stat-label">Revenue 2025</div></div>
+              <div><div class="client-stat-num">XXX+</div><div class="client-stat-label">Sales Orders</div></div>
+            </div>
+          </div>
+          <div class="client-card">
+            <div class="client-brand">
+              <img src="/assets/logos/clients/green-zone-fortunes.svg" alt="Green Zone Fortunes">
+              <span>Green Zone Fortunes</span>
+            </div>
+            <div class="client-stats">
+              <div><div class="client-stat-num">$X.XM+</div><div class="client-stat-label">Revenue 2025</div></div>
+              <div><div class="client-stat-num">XXX+</div><div class="client-stat-label">Sales Orders</div></div>
+            </div>
+          </div>
+          <div class="client-card">
+            <div class="client-brand">
+              <img src="/assets/logos/clients/kiyosaki-letter.svg" alt="The Kiyosaki Letter">
+              <span>The Kiyosaki Letter</span>
+            </div>
+            <div class="client-stats">
+              <div><div class="client-stat-num">$X.XM+</div><div class="client-stat-label">Revenue 2025</div></div>
+              <div><div class="client-stat-num">XXX+</div><div class="client-stat-label">Sales Orders</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pipeline-block">
+        <h2>Production Pipeline</h2>
+        <div class="pipeline-wrap">
+          <div class="pipeline-legend">
+            <div class="legend-item"><span class="legend-dot orange"></span>Led by me</div>
+            <div class="legend-item"><span class="legend-dot tan"></span>Executed by team</div>
+            <div class="legend-item"><span class="legend-dot navy"></span>Executed by client</div>
+          </div>
+          <div class="pipeline-steps">
+            <div class="step step-navy"><span class="step-num">01</span>Script writing</div>
+            <div class="step step-tan"><span class="step-num">06</span>Placeholder prep.</div>
+            <div class="step step-navy"><span class="step-num">11</span>Client review</div>
+            <div class="step step-orange"><span class="step-num">02</span>Script diagnosis</div>
+            <div class="step step-tan"><span class="step-num">07</span>Rough edit</div>
+            <div class="step step-orange"><span class="step-num">12</span>Refinement</div>
+            <div class="step step-orange"><span class="step-num">03</span>Visual direction</div>
+            <div class="step step-tan"><span class="step-num">08</span>Technical review</div>
+            <div class="step step-orange"><span class="step-num">13</span>Final revision</div>
+            <div class="step step-tan"><span class="step-num">04</span>Audio engineering</div>
+            <div class="step step-orange"><span class="step-num">09</span>Director review</div>
+            <div class="step step-navy"><span class="step-num">14</span>Mobile edit</div>
+            <div class="step step-tan"><span class="step-num">05</span>Avatar development</div>
+            <div class="step step-tan"><span class="step-num">10</span>Master development</div>
+            <div class="step step-navy"><span class="step-num">15</span>Mobile revision</div>
+          </div>
+        </div>
+        <a href="#video-production" class="pipeline-full-link">FULL PIPELINE HERE →</a>
+      </div>
+
+      <div class="outstanding-block">
+        <h2>Outstanding Projects</h2>
+
+        <div class="client-group">
+          <div class="client-group-label">Grey Swan Investment Fraternity</div>
+          <div class="project-grid">
+            <div class="project-card">
+              <a href="#" class="project-link" target="_blank" rel="noopener"><!-- TODO: replace with Google Drive video link -->
+              <div class="project-card-label"><span class="num">1</span> GSI The Next Elon Musk</div>
+              <img class="project-thumb" src="/assets/images/projects/grey-swan/the-next-elon-musk.jpg" alt="GSI The Next Elon Musk">
+            </a></div>
+            <div class="project-card">
+              <a href="#" class="project-link" target="_blank" rel="noopener"><!-- TODO: replace with Google Drive video link -->
+              <div class="project-card-label"><span class="num">2</span> GSI The Great Race</div>
+              <img class="project-thumb" src="/assets/images/projects/grey-swan/the-great-race.jpg" alt="GSI The Great Race">
+            </a></div>
+            <div class="project-card">
+              <a href="#" class="project-link" target="_blank" rel="noopener"><!-- TODO: replace with Google Drive video link -->
+              <div class="project-card-label"><span class="num">3</span> GSI Convergence Day</div>
+              <img class="project-thumb" src="/assets/images/projects/grey-swan/convergence-day.jpg" alt="GSI Convergence Day">
+            </a></div>
+            <div class="project-card">
+              <a href="#" class="project-link" target="_blank" rel="noopener"><!-- TODO: replace with Google Drive video link -->
+              <div class="project-card-label"><span class="num">4</span> GSI Shadow Stocks</div>
+              <img class="project-thumb" src="/assets/images/projects/grey-swan/shadow-stocks.jpg" alt="GSI Shadow Stocks">
+            </a></div>
+          </div>
+        </div>
+
+        <div class="client-group">
+          <div class="client-group-label">Strategic Fortunes</div>
+          <div class="project-grid">
+            <div class="project-card">
+              <a href="#" class="project-link" target="_blank" rel="noopener"><!-- TODO: replace with Google Drive video link -->
+              <div class="project-card-label"><span class="num">1</span> EXF Code Red</div>
+              <img class="project-thumb" src="/assets/images/projects/strategic-fortunes/exf-code-red.jpg" alt="EXF Code Red">
+            </a></div>
+            <div class="project-card">
+              <a href="#" class="project-link" target="_blank" rel="noopener"><!-- TODO: replace with Google Drive video link -->
+              <div class="project-card-label"><span class="num">2</span> Starlink</div>
+              <img class="project-thumb" src="/assets/images/projects/strategic-fortunes/starlink.jpg" alt="Starlink">
+            </a></div>
+            <div class="project-card">
+              <a href="#" class="project-link" target="_blank" rel="noopener"><!-- TODO: replace with Google Drive video link -->
+              <div class="project-card-label"><span class="num">3</span> Mystery Metal</div>
+              <img class="project-thumb" src="/assets/images/projects/strategic-fortunes/mystery-metal.jpg" alt="Mystery Metal">
+            </a></div>
+            <div class="project-card">
+              <a href="#" class="project-link" target="_blank" rel="noopener"><!-- TODO: replace with Google Drive video link -->
+              <div class="project-card-label"><span class="num">4</span> PVM OpenAI</div>
+              <img class="project-thumb" src="/assets/images/projects/strategic-fortunes/pvm-openai.jpg" alt="PVM OpenAI">
+            </a></div>
+          </div>
+        </div>
+
+        <div class="client-group">
+          <div class="client-group-label">Green Zone Fortunes</div>
+          <div class="project-grid">
+            <div class="project-card">
+              <a href="#" class="project-link" target="_blank" rel="noopener"><!-- TODO: replace with Google Drive video link -->
+              <div class="project-card-label"><span class="num">1</span> SFT SAND</div>
+              <img class="project-thumb" src="/assets/images/projects/green-zone-fortunes/sft-sand.jpg" alt="SFT SAND">
+            </a></div>
+            <div class="project-card">
+              <a href="#" class="project-link" target="_blank" rel="noopener"><!-- TODO: replace with Google Drive video link -->
+              <div class="project-card-label"><span class="num">2</span> Project Janus</div>
+              <img class="project-thumb" src="/assets/images/projects/green-zone-fortunes/project-janus.jpg" alt="Project Janus">
+            </a></div>
+            <div class="project-card">
+              <a href="#" class="project-link" target="_blank" rel="noopener"><!-- TODO: replace with Google Drive video link -->
+              <div class="project-card-label"><span class="num">3</span> Secret Power Grid</div>
+              <img class="project-thumb" src="/assets/images/projects/green-zone-fortunes/secret-power-grid.jpg" alt="Secret Power Grid">
+            </a></div>
+            <div class="project-card">
+              <a href="#" class="project-link" target="_blank" rel="noopener"><!-- TODO: replace with Google Drive video link -->
+              <div class="project-card-label"><span class="num">4</span> The #1 Space Stock for 2026</div>
+              <img class="project-thumb" src="/assets/images/projects/green-zone-fortunes/number-1-space-stock-2026.jpg" alt="The #1 Space Stock for 2026">
+            </a></div>
+          </div>
+        </div>
+
+        <div class="client-group">
+          <div class="client-group-label">The Kiyosaki Letter</div>
+          <div class="project-grid">
+            <div class="project-card">
+              <a href="#" class="project-link" target="_blank" rel="noopener"><!-- TODO: replace with Google Drive video link -->
+              <div class="project-card-label"><span class="num">1</span> The Leash</div>
+              <img class="project-thumb" src="/assets/images/projects/kiyosaki-letter/the-leash.jpg" alt="The Leash">
+            </a></div>
+            <div class="project-card">
+              <a href="#" class="project-link" target="_blank" rel="noopener"><!-- TODO: replace with Google Drive video link -->
+              <div class="project-card-label"><span class="num">2</span> TVN Gold</div>
+              <img class="project-thumb" src="/assets/images/projects/kiyosaki-letter/tvn-gold.jpg" alt="TVN Gold">
+            </a></div>
+            <div class="project-card">
+              <a href="#" class="project-link" target="_blank" rel="noopener"><!-- TODO: replace with Google Drive video link -->
+              <div class="project-card-label"><span class="num">3</span> KIT Lithium Quiet Zone</div>
+              <img class="project-thumb" src="/assets/images/projects/kiyosaki-letter/kit-lithium-quiet-zone.jpg" alt="KIT Lithium Quiet Zone">
+            </a></div>
+            <div class="project-card">
+              <a href="#" class="project-link" target="_blank" rel="noopener"><!-- TODO: replace with Google Drive video link -->
+              <div class="project-card-label"><span class="num">4</span> Starfighters</div>
+              <img class="project-thumb" src="/assets/images/projects/kiyosaki-letter/starfighters.jpg" alt="Starfighters">
+            </a></div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ CONTENT WRITING (placeholder) ============ -->
+  <section class="placeholder-block" id="content-writing">
+    <div class="placeholder-inner">
+      <h2>Content Writing</h2>
+      <p>Case study content coming soon.</p>
+    </div>
+  </section>
+
+  <!-- ============ SOCIAL MEDIA MANAGEMENT (placeholder) ============ -->
+  <section class="placeholder-block" id="social-media-management">
+    <div class="placeholder-inner">
+      <h2>Social Media Management</h2>
+      <p>Case study content coming soon.</p>
+    </div>
+  </section>
+
+  <!-- ============ BRAND BUILDS (placeholder) ============ -->
+  <section class="placeholder-block" id="brand-builds">
+    <div class="placeholder-inner">
+      <h2>Brand Builds</h2>
+      <p>Case study content coming soon.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <div class="footer-cta">
+    <div class="footer-cta-inner">
+      <div>
+        <h2>Let's build something <span>worth talking</span> about.</h2>
+        <p>Open to <strong>full-time</strong>, <strong>contract</strong>, and <strong>freelance roles</strong> in project management, content, marketing, and creative production. Based in Ho Chi Minh City — working with teams globally.</p>
+        <a href="contact.html" class="btn-primary">Let's talk</a>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <div class="footer-col-label">ABOUT ME</div>
+          <a href="about.html">who am i?</a>
+          <a href="about.html">my experience</a>
+          <a href="about.html">software skills</a>
+          <a href="about.html">my education</a>
+          <a href="about.html">references</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-label">MY SERVICES</div>
+          <a href="services.html">project management</a>
+          <a href="services.html">content management</a>
+          <a href="services.html">creative design</a>
+          <a href="services.html">video editing</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-label">MY PROJECTS</div>
+          <a href="projects.html#video-production">video production</a>
+          <a href="projects.html#content-writing">content writing</a>
+          <a href="projects.html#social-media-management">social media</a>
+          <a href="projects.html#brand-builds">brand builds</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Trang Tran · Ho Chi Minh City, Vietnam</div>
+      <div class="footer-bottom-links">
+        <a href="https://www.linkedin.com/in/trang-tran-030243196/" target="_blank">LinkedIn</a>
+        <a href="mailto:trangtran230899@gmail.com">Email</a>
+        <a href="/assets/cv/trang-tran-cv.pdf" download>Download CV</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Highlight active filter button + strip badge based on which section is in view / clicked
+    var filterBtns = document.querySelectorAll('.filter-btn');
+    var badge = document.getElementById('activeBadge');
+    filterBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        filterBtns.forEach(function (b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        badge.textContent = btn.textContent;
+      });
+    });
+  </script>
+
+</body>
+</html>
