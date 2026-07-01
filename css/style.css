@@ -475,6 +475,22 @@ body {
   align-items: center;
 }
 
+.phone-flag-select {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px 10px;
+  font-size: 14px;
+  color: var(--ink2);
+  font-family: inherit;
+  flex-shrink: 0;
+  cursor: pointer;
+  outline: none;
+}
+.phone-flag-select:focus {
+  border-color: var(--orange);
+}
+
 /* FOOTER */
 .footer {
   background: var(--navy);
