@@ -132,12 +132,10 @@
     .strip-inner {
       display: flex;
       align-items: center;
-      justify-content: space-between;
       width: 100%;
       max-width: 1100px;
       margin: 0 auto;
     }
-    .strip-left { display: flex; align-items: center; }
     .strip-label {
       font-size: 18px;
       letter-spacing: 2px;
@@ -151,6 +149,7 @@
     .strip-logos-wrap {
       display: flex;
       overflow: hidden;
+      flex: 1;
     }
     .strip-logos {
       display: flex;
@@ -163,20 +162,7 @@
       0% { transform: translateX(0); }
       100% { transform: translateX(-100%); }
     }
-    .strip-logo { height: 20px; width: auto; flex-shrink: 0; }
-    .strip-badge {
-      flex-shrink: 0;
-      background: rgba(255,255,255,0.15);
-      border: 1.5px solid rgba(255,255,255,0.5);
-      color: white;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      padding: 9px 22px;
-      border-radius: 100px;
-      white-space: nowrap;
-      margin-left: 24px;
+    .strip-logo { height: 20px; width: auto; flex-shrink: 0; 
     }
 
     /* ============ CASE STUDY SECTION ============ */
@@ -227,7 +213,7 @@
       position: relative;
     }
     .case-summary li::before {
-      content: "—";
+      content: "•";
       position: absolute;
       left: 0;
       color: var(--orange);
@@ -258,7 +244,7 @@
       background: var(--white);
     }
     .client-brand { display: flex; align-items: center; gap: 12px; }
-    .client-brand img { height: 28px; width: auto; }
+    .client-brand img { height: 40px; width: auto; }
     .client-brand span {
       font-size: 14px;
       font-weight: 700;
@@ -313,10 +299,12 @@
     .step-tan .step-num { color: var(--ink); }
     .step-navy { background: var(--navy2); }
     .pipeline-full-link {
-      display: inline-flex;
+      display: flex;
       align-items: center;
       gap: 6px;
+      width: fit-content;
       margin-top: 20px;
+      margin-left: auto;
       font-size: 13px;
       font-weight: 600;
       color: var(--orange);
@@ -332,20 +320,42 @@
       text-transform: uppercase;
       margin-bottom: 28px;
     }
-    .client-group { margin-bottom: 40px; }
-    .client-group:last-child { margin-bottom: 0; }
     .client-group-label {
       background: var(--paper2);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 10px 20px;
+      padding: 14px 20px;
       font-size: 13px;
       font-weight: 700;
       color: var(--ink);
       text-transform: uppercase;
       letter-spacing: 0.5px;
       margin-bottom: 16px;
-    }
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      user-select: none;
+}
+    .client-group-toggle {
+         transition: transform 0.25s ease;
+         color: var(--orange);
+         flex-shrink: 0;
+}
+    .client-group.open .client-group-toggle {
+        transform: rotate(180deg);
+}
+    .project-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        overflow: hidden;
+        max-height: 1000px;
+        transition: max-height 0.3s ease, margin-top 0.3s ease;
+}
+    .client-group:not(.open) .project-grid {
+        max-height: 0;
+}
     .project-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -542,7 +552,6 @@
           </div>
         </div>
       </div>
-      <div class="strip-badge" id="activeBadge">Video Production</div>
     </div>
   </div>
 
@@ -580,7 +589,6 @@
           <div class="client-card">
             <div class="client-brand">
               <img src="/assets/logos/clients/grey-swan.svg" alt="Grey Swan">
-              <span>Grey Swan Investment Fraternity</span>
             </div>
             <div class="client-stats">
               <div><div class="client-stat-num">$X.XM+</div><div class="client-stat-label">Revenue 2025</div></div>
@@ -590,7 +598,6 @@
           <div class="client-card">
             <div class="client-brand">
               <img src="/assets/logos/clients/strategic-fortunes.svg" alt="Strategic Fortunes">
-              <span>Strategic Fortunes</span>
             </div>
             <div class="client-stats">
               <div><div class="client-stat-num">$X.XM+</div><div class="client-stat-label">Revenue 2025</div></div>
@@ -600,7 +607,6 @@
           <div class="client-card">
             <div class="client-brand">
               <img src="/assets/logos/clients/green-zone-fortunes.svg" alt="Green Zone Fortunes">
-              <span>Green Zone Fortunes</span>
             </div>
             <div class="client-stats">
               <div><div class="client-stat-num">$X.XM+</div><div class="client-stat-label">Revenue 2025</div></div>
@@ -610,7 +616,6 @@
           <div class="client-card">
             <div class="client-brand">
               <img src="/assets/logos/clients/kiyosaki-letter.svg" alt="The Kiyosaki Letter">
-              <span>The Kiyosaki Letter</span>
             </div>
             <div class="client-stats">
               <div><div class="client-stat-num">$X.XM+</div><div class="client-stat-label">Revenue 2025</div></div>
@@ -653,7 +658,7 @@
         <h2>Outstanding Projects</h2>
 
         <div class="client-group">
-          <div class="client-group-label">Grey Swan Investment Fraternity</div>
+          <div class="client-group-label"><span>Grey Swan Investment Fraternity</span><span class="client-group-toggle">▾</span></div>
           <div class="project-grid">
             <div class="project-card">
               <a href="#" class="project-link" target="_blank" rel="noopener"><!-- TODO: replace with Google Drive video link -->
@@ -679,7 +684,7 @@
         </div>
 
         <div class="client-group">
-          <div class="client-group-label">Strategic Fortunes</div>
+          <div class="client-group-label"><span>Strategic Fortunes</span><span class="client-group-toggle">▾</span></div>
           <div class="project-grid">
             <div class="project-card">
               <a href="#" class="project-link" target="_blank" rel="noopener"><!-- TODO: replace with Google Drive video link -->
@@ -705,7 +710,7 @@
         </div>
 
         <div class="client-group">
-          <div class="client-group-label">Green Zone Fortunes</div>
+          <div class="client-group-label"><span>Green Zone Fortunes</span><span class="client-group-toggle">▾</span></div>
           <div class="project-grid">
             <div class="project-card">
               <a href="#" class="project-link" target="_blank" rel="noopener"><!-- TODO: replace with Google Drive video link -->
@@ -731,7 +736,7 @@
         </div>
 
         <div class="client-group">
-          <div class="client-group-label">The Kiyosaki Letter</div>
+          <div class="client-group-label"><span>The Kiyosaki Letter</span><span class="client-group-toggle">▾</span></div>
           <div class="project-grid">
             <div class="project-card">
               <a href="#" class="project-link" target="_blank" rel="noopener"><!-- TODO: replace with Google Drive video link -->
@@ -829,16 +834,21 @@
   </div>
 
   <script>
-    // Highlight active filter button + strip badge based on which section is in view / clicked
+    // Highlight active filter button based on which one is clicked
     var filterBtns = document.querySelectorAll('.filter-btn');
-    var badge = document.getElementById('activeBadge');
     filterBtns.forEach(function (btn) {
       btn.addEventListener('click', function () {
         filterBtns.forEach(function (b) { b.classList.remove('active'); });
         btn.classList.add('active');
-        badge.textContent = btn.textContent;
       });
     });
+
+     // Client group accordion toggle
+  document.querySelectorAll('.client-group-label').forEach(function (label) {
+    label.addEventListener('click', function () {
+      label.closest('.client-group').classList.toggle('open');
+    });
+  });
   </script>
 
 </body>
