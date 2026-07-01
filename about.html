@@ -106,8 +106,55 @@
       z-index: 3;
     }
 
-    /* ============ STRIP (shared look, local override for gap) ============ */
-    /* uses .strip / .strip-inner / .strip-label / .strip-logos-wrap / .strip-logos / .strip-logo from style.css */
+    /* STRIP */
+    .strip {
+      background: var(--orange);
+      padding: 18px 48px;
+      overflow: hidden;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+    .strip-inner {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .strip-label {
+      font-size: 18px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      font-weight: 600;
+      padding-left: 28px;
+      padding-right: 32px;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+    .strip-logos-wrap {
+      display: flex;
+      overflow: hidden;
+      flex: 1;
+    }
+    .strip-logos {
+      display: flex;
+      gap: 56px;
+      align-items: center;
+      animation: marquee 20s linear infinite;
+      flex-shrink: 0;
+    }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+    .strip-logo {
+      font-size: 15px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.9);
+      white-space: nowrap;
+    }
 
     /* ============ ABOUT ME / ACCORDION ============ */
     .about-section {
@@ -308,7 +355,12 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 24px;
+      align-items: stretch;
     }
+    .tools-category {
+        display: flex;
+        flex-direction: column;
+    }    
     .tools-category h3 {
       text-align: center;
       font-size: 13px;
@@ -321,15 +373,17 @@
     .tools-box {
       border: 1.5px solid var(--orange);
       border-radius: 12px;
-      padding: 24px;
+      padding: 32px;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
+      align-content: center;
+      justify-items: center;
+      gap: 24px;
       background: var(--white);
     }
     .tool-icon {
-      width: 56px;
-      height: 56px;
+      width: 72px;
+      height: 72px;
       margin: 0 auto;
       border-radius: 10px;
       display: flex;
@@ -338,8 +392,8 @@
       background: var(--white);
     }
     .tool-icon img {
-      width: 32px;
-      height: 32px;
+      width: 48px;
+      height: 48px;
       object-fit: contain;
     }
 
