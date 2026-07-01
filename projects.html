@@ -160,23 +160,11 @@
       animation: marquee 20s linear infinite;
       flex-shrink: 0;
     }
-    .strip-logos-clone {
-      display: flex;
-      gap: 56px;
-      align-items: center;
-      animation: marquee 20s linear infinite;
-      flex-shrink: 0;
-      padding-left: 56px;
-    }
     @keyframes marquee {
       0% { transform: translateX(0); }
       100% { transform: translateX(-100%); }
     }
-    .strip-logo {
-      font-size: 15px;
-      font-weight: 700;
-      color: rgba(255,255,255,0.9);
-      white-space: nowrap;
+    .strip-logo { height: 22px; width: auto; flex-shrink: 0; 
     }
 
     /* ============ CASE STUDY SECTION ============ */
@@ -369,11 +357,6 @@
 }
     .client-group:not(.open) .project-grid {
         max-height: 0;
-}
-    .project-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
     }
     .project-card { }
     .project-link {
@@ -552,7 +535,6 @@
   <!-- STRIP -->
   <div class="strip">
     <div class="strip-inner">
-      <div class="strip-left">
         <div class="strip-label">EXPERIENCED AT</div>
         <div class="strip-logos-wrap">
           <div class="strip-logos">
@@ -561,7 +543,6 @@
             <img src="/assets/logos/hcl-tech-1.svg" alt="HCLTech" class="strip-logo">
             <img src="/assets/logos/launchmen-logo-1.svg" alt="Launchmen" class="strip-logo">
             <img src="/assets/logos/tvg-logo-1.svg" alt="TVG" class="strip-logo">
-          </div>
         </div>
       </div>
     </div>
