@@ -500,6 +500,224 @@
       .footer-cta-inner { grid-template-columns: 1fr; }
       .footer-cols { grid-template-columns: 1fr 1fr; }
     }
+    /* ============ CONTENT WRITING: roles & clients ============ */
+.roles-clients-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 32px;
+}
+.roles-client-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  background: var(--white);
+}
+.roles-client-card h4 {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+.roles-client-card p {
+  font-size: 12px;
+  color: var(--ink2);
+  line-height: 1.6;
+  font-weight: 300;
+  margin-bottom: 16px;
+}
+.roles-client-logos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+.roles-client-logos img { height: 20px; width: auto; }
+
+/* ============ WRITING SAMPLES ============ */
+.samples-block { padding: 56px 0 64px; }
+.samples-block h2 {
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--ink);
+  text-transform: uppercase;
+  margin-bottom: 28px;
+}
+.samples-group { margin-bottom: 36px; }
+.samples-group:last-child { margin-bottom: 0; }
+.samples-group-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.samples-group-label::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--ink);
+}
+.samples-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.sample-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  background: var(--white);
+}
+.sample-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: var(--paper2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink3);
+  font-size: 16px;
+  margin-bottom: 16px;
+}
+.sample-card h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--orange);
+  margin-bottom: 8px;
+}
+.sample-card p {
+  font-size: 12px;
+  color: var(--ink2);
+  line-height: 1.6;
+  font-weight: 300;
+  margin-bottom: 14px;
+}
+.sample-link {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--orange);
+  text-decoration: none;
+}
+
+/* ============ SOCIAL MEDIA: client stat card ============ */
+.social-client-block { padding: 56px 0; border-bottom: 1px solid var(--border); }
+.social-client-block h2 {
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--ink);
+  text-transform: uppercase;
+  margin-bottom: 28px;
+}
+.social-client-card {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+  background: var(--white);
+}
+.social-stats { display: flex; gap: 32px; flex-shrink: 0; }
+.social-stat-num { font-size: 22px; font-weight: 800; color: var(--orange); }
+.social-stat-label { font-size: 11px; color: var(--ink3); text-transform: uppercase; letter-spacing: 0.5px; }
+.social-client-photo {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.social-client-info h3 { font-size: 16px; font-weight: 700; color: var(--ink); margin-bottom: 2px; }
+.social-client-info p { font-size: 12px; color: var(--ink2); margin-bottom: 6px; }
+.social-client-info a { font-size: 12px; font-weight: 600; color: var(--orange); text-decoration: none; }
+
+/* ============ OUTSTANDING SOCIAL POSTS ============ */
+.social-posts-block { padding: 56px 0 64px; }
+.social-posts-block h2 {
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--ink);
+  text-transform: uppercase;
+  margin-bottom: 28px;
+}
+.social-posts-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.social-post-card { }
+.social-post-thumb {
+  width: 100%;
+  aspect-ratio: 4/5;
+  border-radius: var(--radius);
+  background: var(--paper2);
+  border: 1px solid var(--border);
+  object-fit: cover;
+  display: block;
+  margin-bottom: 8px;
+}
+.social-post-impressions {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink2);
+}
+
+/* ============ BRAND BUILDS: clients ============ */
+.brand-clients-block { padding: 56px 0; border-bottom: 1px solid var(--border); }
+.brand-clients-block h2 {
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--ink);
+  text-transform: uppercase;
+  margin-bottom: 28px;
+}
+.brand-clients-row { display: flex; gap: 60px; align-items: center; }
+.brand-clients-row img { height: 32px; width: auto; }
+
+/* ============ DELIVERABLES TABLE ============ */
+.deliverables-block { padding: 56px 0 64px; }
+.deliverables-block h2 {
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--ink);
+  text-transform: uppercase;
+  margin-bottom: 28px;
+}
+.deliverables-header-row {
+  display: grid;
+  grid-template-columns: 40px 1fr 1fr;
+  gap: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 8px;
+}
+.deliverables-header-row span {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--ink3);
+}
+.deliverables-row {
+  display: grid;
+  grid-template-columns: 40px 1fr 1fr;
+  gap: 20px;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+}
+.deliverables-row:last-child { border-bottom: none; }
+.deliverables-num { font-size: 13px; font-weight: 800; color: var(--orange); }
+.deliverables-row div:not(.deliverables-num) {
+  font-size: 14px;
+  color: var(--ink);
+  font-weight: 500;
+}
   </style>
 </head>
 <body>
@@ -763,29 +981,327 @@
     </div>
   </section>
 
-  <!-- ============ CONTENT WRITING (placeholder) ============ -->
-  <section class="placeholder-block" id="content-writing">
-    <div class="placeholder-inner">
-      <h2>Content Writing</h2>
-      <p>Case study content coming soon.</p>
-    </div>
-  </section>
+<!-- ============ CONTENT WRITING ============ -->
+<section class="case-section" id="content-writing">
+  <div class="case-inner">
 
-  <!-- ============ SOCIAL MEDIA MANAGEMENT (placeholder) ============ -->
-  <section class="placeholder-block" id="social-media-management">
-    <div class="placeholder-inner">
-      <h2>Social Media Management</h2>
-      <p>Case study content coming soon.</p>
+    <div class="case-summary">
+      <div>
+        <h3>Overview</h3>
+        <p>I've written for law firms, financial publishers, negotiation coaches, and technology companies — adapting tone, structure, and format to fit the audience every time. From a 70-page VSL script to a 5-page website — if it needs words, I can write it.</p>
+      </div>
+      <div>
+        <h3>Challenges</h3>
+        <ul>
+          <li>Financial and legal clients especially have <strong>strict standards</strong> around accuracy, tone, and compliance.</li>
+          <li>Every piece needs to be researched, fact-checked, and written to a brief before it goes anywhere near a designer or publisher.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>My Roles &amp; Clients</h3>
+        <div class="roles-clients-grid" style="grid-column: 1 / -1; grid-template-columns: repeat(4, 1fr);">
+          <div class="roles-client-card">
+            <h4>Website Copy</h4>
+            <p>Full-site copy covering all pages, written to match brand voice.</p>
+            <div class="roles-client-logos">
+              <img src="/assets/logos/clients/eplegal.svg" alt="EPLegal">
+              <img src="/assets/logos/clients/bluestream-legal.svg" alt="BlueStream Legal">
+              <img src="/assets/logos/clients/axi-homestay.svg" alt="AXI Homestay">
+            </div>
+          </div>
+          <div class="roles-client-card">
+            <h4>Long &amp; Short-Form Copy</h4>
+            <p>Written from scratch or diagnosed and rewritten from existing drafts.</p>
+            <div class="roles-client-logos">
+              <img src="/assets/logos/clients/grey-swan.svg" alt="Grey Swan">
+              <img src="/assets/logos/clients/strategic-fortunes.svg" alt="Strategic Fortunes">
+              <img src="/assets/logos/clients/kiyosaki-letter.svg" alt="The Kiyosaki Letter">
+            </div>
+          </div>
+          <div class="roles-client-card">
+            <h4>SEO &amp; Blog Writing</h4>
+            <p>Keyword-informed, well-researched, built to convert.</p>
+            <div class="roles-client-logos">
+              <img src="/assets/logos/clients/aesirx.svg" alt="AesirX">
+              <img src="/assets/logos/clients/the-vietnam-group.svg" alt="The Vietnam Group">
+            </div>
+          </div>
+          <div class="roles-client-card">
+            <h4>Other Copies</h4>
+            <p>Order forms, email sequences, landing pages, and newsletter copies.</p>
+            <div class="roles-client-logos">
+              <img src="/assets/logos/clients/kiyosaki-letter.svg" alt="The Kiyosaki Letter">
+              <img src="/assets/logos/clients/the-vietnam-group.svg" alt="The Vietnam Group">
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </section>
 
-  <!-- ============ BRAND BUILDS (placeholder) ============ -->
-  <section class="placeholder-block" id="brand-builds">
-    <div class="placeholder-inner">
-      <h2>Brand Builds</h2>
-      <p>Case study content coming soon.</p>
+    <div class="samples-block">
+      <h2>Writing Samples</h2>
+
+      <div class="samples-group">
+        <div class="samples-group-label">Website Copy</div>
+        <div class="samples-grid">
+          <div class="sample-card">
+            <div class="sample-icon">✎</div>
+            <h4>EPLegal</h4>
+            <p>Professional, bilingual-ready, written to build trust with clients.</p>
+            <a href="#" class="sample-link" target="_blank" rel="noopener"><!-- TODO: add link --> View website →</a>
+          </div>
+          <div class="sample-card">
+            <div class="sample-icon">✎</div>
+            <h4>AXI Homestay</h4>
+            <p>Warm, guest-first website copy for a hospitality brand.</p>
+            <a href="#" class="sample-link" target="_blank" rel="noopener"><!-- TODO: add link --> View website →</a>
+          </div>
+          <div class="sample-card">
+            <div class="sample-icon">✎</div>
+            <h4>BlueStream Legal</h4>
+            <p>Website copy for a negotiation coach &amp; attorney's personal brand.</p>
+            <a href="#" class="sample-link" target="_blank" rel="noopener"><!-- TODO: add link --> View website →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="samples-group">
+        <div class="samples-group-label">Long &amp; Short-Form Copy</div>
+        <div class="samples-grid">
+          <div class="sample-card">
+            <div class="sample-icon">✎</div>
+            <h4>13-Step Sequence Word Order</h4>
+            <p>Bold and structured persuasive sequence.</p>
+            <a href="#" class="sample-link" target="_blank" rel="noopener"><!-- TODO: add link --> View video →</a>
+          </div>
+          <div class="sample-card">
+            <div class="sample-icon">✎</div>
+            <h4>Is The SpaceX IPO a Trap for Investors?</h4>
+            <p>Social Media hook &amp; fast-paced script.</p>
+            <a href="#" class="sample-link" target="_blank" rel="noopener"><!-- TODO: add link --> View video →</a>
+          </div>
+          <div class="sample-card">
+            <div class="sample-icon">✎</div>
+            <h4>Who Does America Owe $39 Trillion To?</h4>
+            <p>Script built with a mix of fact and provocative question.</p>
+            <a href="#" class="sample-link" target="_blank" rel="noopener"><!-- TODO: add link --> View video →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="samples-group">
+        <div class="samples-group-label">SEO &amp; Blog Writing</div>
+        <div class="samples-grid">
+          <div class="sample-card">
+            <div class="sample-icon">✎</div>
+            <h4>Difference Between Assisted Living and A Nursing Home</h4>
+            <p></p>
+            <a href="#" class="sample-link" target="_blank" rel="noopener"><!-- TODO: add link --> View blog →</a>
+          </div>
+          <div class="sample-card">
+            <div class="sample-icon">✎</div>
+            <h4>How Do First and Third-Party Cookies Work?</h4>
+            <p></p>
+            <a href="#" class="sample-link" target="_blank" rel="noopener"><!-- TODO: add link --> View blog →</a>
+          </div>
+          <div class="sample-card">
+            <div class="sample-icon">✎</div>
+            <h4>Guide To Understanding &amp; Coping With Dementia Behavior</h4>
+            <p></p>
+            <a href="#" class="sample-link" target="_blank" rel="noopener"><!-- TODO: add link --> View blog →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="samples-group">
+        <div class="samples-group-label">Other Copies</div>
+        <div class="samples-grid">
+          <div class="sample-card">
+            <div class="sample-icon">✎</div>
+            <h4>Landing Page</h4>
+            <p>Benefit-led, conversion-focused, written to work with the sales funnel.</p>
+            <a href="#" class="sample-link" target="_blank" rel="noopener"><!-- TODO: add link --> View page →</a>
+          </div>
+          <div class="sample-card">
+            <div class="sample-icon">✎</div>
+            <h4>Newsletter</h4>
+            <p>For a monthly homeowner community — friendly and audience-appropriate tone.</p>
+            <a href="#" class="sample-link" target="_blank" rel="noopener"><!-- TODO: add link --> View sample →</a>
+          </div>
+          <div class="sample-card">
+            <div class="sample-icon">✎</div>
+            <h4>Order Form</h4>
+            <p>Concise, trust-building, written to reduce friction at the point of purchase.</p>
+            <a href="#" class="sample-link" target="_blank" rel="noopener"><!-- TODO: add link --> View sample →</a>
+          </div>
+        </div>
+      </div>
+
     </div>
-  </section>
+
+  </div>
+</section>
+
+<!-- ============ SOCIAL MEDIA MANAGEMENT ============ -->
+<section class="case-section" id="social-media-management">
+  <div class="case-inner">
+
+    <div class="case-summary">
+      <div>
+        <h3>Overview</h3>
+        <p>I managed the full social media presence for Addison Wiggin. That meant writing scripts, managing publishing across LinkedIn and X, and keeping a daily cadence without ever letting the content feel rushed or off-brand.</p>
+      </div>
+      <div>
+        <h3>Challenges</h3>
+        <ul>
+          <li>Financial content on social is a narrow lane — accurate enough to hold up to scrutiny, interesting enough to stop the scroll, and careful enough not to cross compliance lines.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>My Roles</h3>
+        <ul>
+          <li><strong>Managed</strong> daily content publishing across LinkedIn &amp; X.</li>
+          <li><strong>Wrote</strong> short/long-form scripts &amp; copy.</li>
+          <li>Authored the team's <strong>editorial SOP</strong> for script writing and publishing workflow.</li>
+          <li><strong>Tracked performance</strong> and reported directly to the client.</li>
+          <li><strong>Coordinated</strong> writers and editors to maintain publishing cadence.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="social-client-block">
+      <h2>Client</h2>
+      <div class="social-client-card">
+        <div class="social-stats">
+          <div><div class="social-stat-num">700k+</div><div class="social-stat-label">Impressions in 1 year</div></div>
+          <div><div class="social-stat-num">+5k</div><div class="social-stat-label">Followers in 2025</div></div>
+          <div><div class="social-stat-num">300k+</div><div class="social-stat-label">Members reached</div></div>
+        </div>
+        <img src="/assets/images/clients/addison-wiggin.jpg" alt="Addison Wiggin" class="social-client-photo">
+        <div class="social-client-info">
+          <h3>Addison Wiggin</h3>
+          <p>Writer, publisher, and filmmaker</p>
+          <a href="#" target="_blank" rel="noopener"><!-- TODO: add link -->Read more →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="social-posts-block">
+      <h2>Outstanding Social Posts</h2>
+      <div class="social-posts-grid">
+        <div class="social-post-card">
+          <img class="social-post-thumb" src="/assets/images/social-posts/post-1.jpg" alt="US Power Sources post">
+          <div class="social-post-impressions">40,666 impressions</div>
+        </div>
+        <div class="social-post-card">
+          <img class="social-post-thumb" src="/assets/images/social-posts/post-2.jpg" alt="Social post 2">
+          <div class="social-post-impressions">74,162 impressions</div>
+        </div>
+        <div class="social-post-card">
+          <img class="social-post-thumb" src="/assets/images/social-posts/post-3.jpg" alt="US Layoffs post">
+          <div class="social-post-impressions">75,659 impressions</div>
+        </div>
+        <div class="social-post-card">
+          <img class="social-post-thumb" src="/assets/images/social-posts/post-4.jpg" alt="Social post 4">
+          <div class="social-post-impressions">34,486 impressions</div>
+        </div>
+        <div class="social-post-card">
+          <img class="social-post-thumb" src="/assets/images/social-posts/post-5.jpg" alt="Social post 5">
+          <div class="social-post-impressions">10.8K views</div>
+        </div>
+        <div class="social-post-card">
+          <img class="social-post-thumb" src="/assets/images/social-posts/post-6.jpg" alt="Social post 6">
+          <div class="social-post-impressions"></div>
+        </div>
+        <div class="social-post-card">
+          <img class="social-post-thumb" src="/assets/images/social-posts/post-7.jpg" alt="Social post 7">
+          <div class="social-post-impressions"></div>
+        </div>
+        <div class="social-post-card">
+          <img class="social-post-thumb" src="/assets/images/social-posts/post-8.jpg" alt="Social post 8">
+          <div class="social-post-impressions"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ BRAND BUILDS ============ -->
+<section class="case-section" id="brand-builds">
+  <div class="case-inner">
+
+    <div class="case-summary">
+      <div>
+        <h3>Overview</h3>
+        <p>I came in at the very beginning — no templates, no established voice, no existing assets. Everything had to be created: the identity, the content, the website, the collateral. I led the strategy, wrote the copy, directed the designers, and managed the developer until the final product was live and ready to use.</p>
+      </div>
+      <div>
+        <h3>Challenges</h3>
+        <ul>
+          <li>Getting it right from zero, without an existing brand to reference, meant making a lot of foundational decisions early that everything else would build on.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>My Roles</h3>
+        <ul>
+          <li>Led <strong>full brand development</strong> from initial concept through final delivery.</li>
+          <li>Wrote <strong>all brand copy</strong> in English and Vietnamese.</li>
+          <li><strong>Directed</strong> designers on visual identity, layout, and brand guidelines.</li>
+          <li><strong>Managed</strong> developer handoff for both websites.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="brand-clients-block">
+      <h2>Clients</h2>
+      <div class="brand-clients-row">
+        <img src="/assets/logos/clients/blue-stem.svg" alt="Blue Stem">
+        <img src="/assets/logos/clients/eplegal.svg" alt="EPLegal">
+      </div>
+    </div>
+
+    <div class="deliverables-block">
+      <h2>Deliverables</h2>
+      <div class="deliverables-header-row">
+        <span></span>
+        <span>Blue Stem</span>
+        <span>EPLegal</span>
+      </div>
+      <div class="deliverables-row">
+        <div class="deliverables-num">01</div>
+        <div>Brand Guideline</div>
+        <div>Brand Guideline</div>
+      </div>
+      <div class="deliverables-row">
+        <div class="deliverables-num">02</div>
+        <div>Founder's Profile</div>
+        <div>Profile Booklet</div>
+      </div>
+      <div class="deliverables-row">
+        <div class="deliverables-num">03</div>
+        <div>Website</div>
+        <div>Website</div>
+      </div>
+      <div class="deliverables-row">
+        <div class="deliverables-num">04</div>
+        <div>Webinar Presentation</div>
+        <div>Company Introduction Reel</div>
+      </div>
+      <div class="deliverables-row">
+        <div class="deliverables-num">05</div>
+        <div>UcAL! Book</div>
+        <div>Bidding Profiles</div>
+      </div>
+      <div class="deliverables-row">
+        <div class="deliverables-num">06</div>
+        <div>Media Kit</div>
+        <div>Media Kit</div>
+      </div>
+    </div>
+
+  </div>
+</section>
 
   <!-- FOOTER -->
   <div class="footer-cta">
