@@ -286,26 +286,7 @@
       grid-template-columns: 1fr 1fr;
       gap: 16px;
     }
-    .phone-input-wrap {
-      display: flex;
-      gap: 8px;
-      align-items: center;
-    }
-    .phone-flag {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 12px 14px;
-      font-size: 14px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      color: var(--ink2);
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
-    .phone-flag span { font-size: 18px; }
-    .phone-input-wrap input { flex: 1; }
+    
     .btn-send {
       background: var(--orange);
       color: #fff;
@@ -480,16 +461,7 @@
         </div>
         <div class="form-group">
           <label>Phone number</label>
-          <div class="phone-input-wrap">
-            <select name="country-code" class="phone-flag-select">
-              <option value="+84" selected>🇻🇳 +84</option>
-              <option value="+1">🇺🇸 +1</option>
-              <option value="+44">🇬🇧 +44</option>
-              <option value="+61">🇦🇺 +61</option>
-              <option value="+65">🇸🇬 +65</option>
-            </select>
-            <input type="tel" name="phone" placeholder="xxx xxx xxx"/>
-          </div>
+          <input type="tel" name="phone" placeholder="+84 936 170 743"/>
         </div>
       </div>
       <div class="form-group">
