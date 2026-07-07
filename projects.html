@@ -513,7 +513,7 @@
 .samples-group { margin-bottom: 36px; }
 .samples-group:last-child { margin-bottom: 0; }
 .samples-group-label {
-  font-size: 14px;
+  font-size: 20px;
   font-weight: 700;
   color: var(--ink);
   margin-bottom: 16px;
@@ -554,7 +554,7 @@
 .sample-card h4 {
   font-size: 14px;
   font-weight: 700;
-  color: var(--orange);
+  color: var(--ink);
   margin-bottom: 8px;
 }
 .sample-card p {
@@ -677,11 +677,16 @@
   border-bottom: 1px solid var(--border);
 }
 .deliverables-row:last-child { border-bottom: none; }
-.deliverables-row div {
+.deliverables-row a {
   font-size: 14px;
   color: var(--ink);
   font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s;
 }
+.deliverables-row a:hover { color: var(--orange); 
+}
+
 .section-badge {
   display: flex;
   justify-content: flex-end;
