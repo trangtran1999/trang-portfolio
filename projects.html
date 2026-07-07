@@ -526,20 +526,29 @@
   font-weight: 300;
   margin-bottom: 16px;
 }
-.roles-client-tags {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+.roles-client-list {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0;
 }
-.roles-client-tag {
-  display: inline-block;
-  width: fit-content;
-  border: 1px solid var(--border);
-  border-radius: 100px;
-  padding: 6px 16px;
+
+.roles-client-list li {
+  position: relative;
+  padding-left: 16px;
+  margin-bottom: 8px;
   font-size: 13px;
   color: var(--ink);
-  font-weight: 500;
+}
+
+.roles-client-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #c94a00;
 }
 
 /* ============ WRITING SAMPLES ============ */
@@ -709,6 +718,11 @@
   letter-spacing: 0.5px;
   color: var(--ink3);
 }
+.deliverables-logo {
+  height: 24px;
+  width: auto;
+  display: block;
+}
 .deliverables-row {
   display: grid;
   grid-template-columns: 40px 1fr 1fr;
@@ -809,7 +823,7 @@
         <div class="clients-grid">
           <div class="client-card">
             <div class="client-brand">
-              <img src="/assets/logos/clients/grey-swan.svg" alt="Grey Swan">
+              <img src="/assets/logos/clients/grey-swan.svg" alt="Grey Swan" style="height: 52px;">
             </div>
             <div class="client-stats">
               <div><div class="client-stat-num">$X.XM+</div><div class="client-stat-label">Revenue 2025</div></div>
@@ -1009,36 +1023,36 @@
           <div class="roles-client-card">
             <h4>Website Copy</h4>
             <p>Full-site copy covering all pages, written to match brand voice.</p>
-            <div class="roles-client-tags">
-              <span class="roles-client-tag">EPLegal</span>
-              <span class="roles-client-tag">BlueStreamLegal</span>
-              <span class="roles-client-tag">AN Homestay</span>
-            </div>
+            <ul class="roles-client-list">
+              <li>EPLegal</li>
+              <li>BlueStreamLegal</li>
+               <li>AN Homestay</li>
+            </ul>
           </div>
           <div class="roles-client-card">
             <h4>Long &amp; Short-Form Copy</h4>
             <p>Written from scratch or diagnosed and rewritten from existing drafts.</p>
-            <div class="roles-client-tags">
-              <span class="roles-client-tag">GreySwan</span>
-              <span class="roles-client-tag">Strategic Fortunes</span>
-              <span class="roles-client-tag">The Kiyosaki Letter</span>
-            </div>
+            <ul class="roles-client-list">
+              <li>GreySwan</li>
+              <li>Strategic Fortunes</li>
+              <li>The Kiyosaki Letter</li>
+            </ul>
           </div>
           <div class="roles-client-card">
             <h4>SEO &amp; Blog Writing</h4>
             <p>Keyword-informed, well-researched, built to convert.</p>
-            <div class="roles-client-tags">
-              <span class="roles-client-tag">AesirX</span>
-              <span class="roles-client-tag">The Vietnam Group</span>
-            </div>
+            <ul class="roles-client-list">
+              <li>AesirX</li>
+              <li>The Vietnam Group</li>
+            </ul>
           </div>
           <div class="roles-client-card">
             <h4>Other Copies</h4>
             <p>Order forms, email sequences, landing pages, and newsletter copies.</p>
-            <div class="roles-client-tags">
-              <span class="roles-client-tag">The Kiyosaki Letter</span>
-              <span class="roles-client-tag">The Vietnam Group</span>
-            </div>
+            <ul class="roles-client-list">
+              <li>The Kiyosaki Letter</li>
+              <li>The Vietnam Group</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -1260,19 +1274,10 @@
     </div>
 
     <div class="deliverables-block">
-      <h2>Clients &amp; Deliverables</h2>
-      <div class="brand-clients-row" style="margin-bottom: 32px;">
-        <img src="/assets/logos/bluestream-logo-1.svg" alt="BlueStream">
-        <img src="/assets/logos/eplegal-logo-1.svg" alt="EPLegal">
-      </div>
-    </div>
-
-    <div class="deliverables-block">
-      <h2>Deliverables</h2>
       <div class="deliverables-header-row">
         <span></span>
-        <span>Blue Stem</span>
-        <span>EPLegal</span>
+        <span><img src="/assets/logos/bluestream-logo-1.svg" alt="Blue Stream" class="deliverables-logo"></span>
+        <span><img src="/assets/logos/eplegal-logo-1.svg" alt="EPLegal" class="deliverables-logo"></span>
       </div>
       <div class="deliverables-row">
         <div class="deliverables-num">01</div>
