@@ -625,12 +625,7 @@
   background: var(--paper2);
   border: 1px solid var(--border);
   display: block;
-  margin-bottom: 8px;
-}
-.social-post-impressions {
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--ink2);
+  margin-bottom: 0px;
 }
 
 /* ============ BRAND BUILDS: clients ============ */
@@ -655,7 +650,7 @@
 }
 .deliverables-header-row {
   display: grid;
-  grid-template-columns: 40px 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 20px;
   padding-bottom: 12px;
   border-bottom: 1px solid var(--border);
@@ -669,24 +664,39 @@
   color: var(--ink3);
 }
 .deliverables-logo {
-  height: 24px;
+  height: 40px;
   width: auto;
   display: block;
 }
 .deliverables-row {
   display: grid;
-  grid-template-columns: 40px 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 20px;
   align-items: center;
   padding: 14px 0;
   border-bottom: 1px solid var(--border);
 }
 .deliverables-row:last-child { border-bottom: none; }
-.deliverables-num { font-size: 13px; font-weight: 800; color: var(--orange); }
-.deliverables-row div:not(.deliverables-num) {
+.deliverables-row div {
   font-size: 14px;
   color: var(--ink);
   font-weight: 500;
+}
+.section-badge {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 32px;
+}
+.section-badge span {
+  background: var(--orange);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 12px 26px;
+  border-radius: 100px;
+  box-shadow: 0 0 0 4px rgba(201, 74, 0, 0.15);
 }
   </style>
 </head>
@@ -743,6 +753,7 @@
   <!-- ============ VIDEO PRODUCTION ============ -->
   <section class="case-section" id="video-production">
     <div class="case-inner">
+      <div class="section-badge"><span>Video Production</span></div>
 
       <div class="case-summary">
         <div>
@@ -954,6 +965,7 @@
 <!-- ============ CONTENT WRITING ============ -->
 <section class="case-section" id="content-writing">
   <div class="case-inner">
+    <div class="section-badge"><span>Content Writing</span></div>
 
     <div class="case-summary">
       <div>
@@ -1085,6 +1097,7 @@
 <!-- ============ SOCIAL MEDIA MANAGEMENT ============ -->
 <section class="case-section" id="social-media-management">
   <div class="case-inner">
+    <div class="section-badge"><span>Social Media Management</span></div>
 
     <div class="case-summary">
       <div>
@@ -1130,36 +1143,22 @@
       <h2>Outstanding Social Posts</h2>
       <div class="social-posts-grid">
         <div class="social-post-card">
-          <img class="social-post-thumb" src="/assets/images/social-posts/post-1.jpg" alt="US Power Sources post">
-          <div class="social-post-impressions">40,666 impressions</div>
+          <img class="social-post-thumb" src="/assets/images/social-posts/post-1.png" alt="US Power Sources post">
         </div>
         <div class="social-post-card">
-          <img class="social-post-thumb" src="/assets/images/social-posts/post-2.jpg" alt="Social post 2">
-          <div class="social-post-impressions">74,162 impressions</div>
+          <img class="social-post-thumb" src="/assets/images/social-posts/post-2.png" alt="Social post 2">
         </div>
         <div class="social-post-card">
-          <img class="social-post-thumb" src="/assets/images/social-posts/post-3.jpg" alt="US Layoffs post">
-          <div class="social-post-impressions">75,659 impressions</div>
+          <img class="social-post-thumb" src="/assets/images/social-posts/post-3.png" alt="US Layoffs post">
         </div>
         <div class="social-post-card">
-          <img class="social-post-thumb" src="/assets/images/social-posts/post-4.jpg" alt="Social post 4">
-          <div class="social-post-impressions">34,486 impressions</div>
+          <img class="social-post-thumb" src="/assets/images/social-posts/post-4.png" alt="Social post 4">
         </div>
         <div class="social-post-card">
-          <img class="social-post-thumb" src="/assets/images/social-posts/post-5.jpg" alt="Social post 5">
-          <div class="social-post-impressions">10.8K views</div>
+          <img class="social-post-thumb" src="/assets/images/social-posts/post-5.png" alt="Social post 5">
         </div>
         <div class="social-post-card">
-          <img class="social-post-thumb" src="/assets/images/social-posts/post-6.jpg" alt="Social post 6">
-          <div class="social-post-impressions"></div>
-        </div>
-        <div class="social-post-card">
-          <img class="social-post-thumb" src="/assets/images/social-posts/post-7.jpg" alt="Social post 7">
-          <div class="social-post-impressions"></div>
-        </div>
-        <div class="social-post-card">
-          <img class="social-post-thumb" src="/assets/images/social-posts/post-8.jpg" alt="Social post 8">
-          <div class="social-post-impressions"></div>
+          <img class="social-post-thumb" src="/assets/images/social-posts/post-6.png" alt="Social post 6">
         </div>
       </div>
     </div>
@@ -1170,6 +1169,7 @@
 <!-- ============ BRAND BUILDS ============ -->
 <section class="case-section" id="brand-builds">
   <div class="case-inner">
+    <div class="section-badge"><span>Brand Builds</span></div>
 
     <div class="case-summary">
       <div>
@@ -1194,38 +1194,32 @@
     </div>
 
     <div class="deliverables-block">
+      <h2>Clients &amp; Deliverables</h2>
       <div class="deliverables-header-row">
-        <span></span>
         <span><img src="/assets/logos/bluestream-logo-1.svg" alt="Blue Stream" class="deliverables-logo"></span>
         <span><img src="/assets/logos/eplegal-logo-1.svg" alt="EPLegal" class="deliverables-logo"></span>
       </div>
       <div class="deliverables-row">
-        <div class="deliverables-num">01</div>
         <div>Brand Guideline</div>
         <div>Brand Guideline</div>
       </div>
       <div class="deliverables-row">
-        <div class="deliverables-num">02</div>
         <div>Founder's Profile</div>
         <div>Profile Booklet</div>
       </div>
       <div class="deliverables-row">
-        <div class="deliverables-num">03</div>
         <div>Website</div>
         <div>Website</div>
       </div>
       <div class="deliverables-row">
-        <div class="deliverables-num">04</div>
         <div>Webinar Presentation</div>
         <div>Company Introduction Reel</div>
       </div>
       <div class="deliverables-row">
-        <div class="deliverables-num">05</div>
         <div>DEAL! Book</div>
         <div>Bidding Profiles</div>
       </div>
       <div class="deliverables-row">
-        <div class="deliverables-num">06</div>
         <div>Media Kit</div>
         <div>Media Kit</div>
       </div>
