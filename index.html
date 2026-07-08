@@ -429,16 +429,28 @@
       margin: 0;
     }
     .testimonials-container {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      display: flex;
       gap: 32px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
     }
+    .testimonials-container::-webkit-scrollbar { display: none; }
     .testimonial-card {
       background: var(--white);
       border: 1px solid var(--border);
       border-radius: 12px;
       padding: 28px;
       position: relative;
+      flex: 0 0 calc((100% - 64px) / 3);
+      scroll-snap-align: start;
+    }
+    .testimonial-author-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--orange);
+      margin-bottom: 8px;
     }
     .testimonial-quote {
       position: absolute;
@@ -477,6 +489,20 @@
       color: var(--ink2);
       margin: 0;
     }
+    .testimonial-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 32px;
+    }
+    .testimonial-dots span {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--border);
+      cursor: pointer;
+    }
+    .testimonial-dots span.active { background: var(--orange); }
 
     /* FOOTER CTA */
     .footer-cta {
@@ -532,7 +558,7 @@
     }
     .footer-col a:hover { color: var(--orange); }
     .footer-bottom {
-      max-width: 960px;
+      max-width: 1100px;
       margin: 32px auto 0;
       padding-top: 24px;
       border-top: 1px solid var(--border);
@@ -548,7 +574,12 @@
       text-decoration: none;
       transition: color 0.2s;
     }
-    .footer-bottom-links a:hover { color: var(--orange); }
+    .footer-bottom-links a:hover { color: var(--orange); 
+    }
+
+    @media (max-width: 900px) {
+      .testimonial-card { flex: 0 0 100%; }
+    }
   </style>
 </head>
 <body>
@@ -572,7 +603,7 @@
       <div class="hero-left">
         <h1 class="hero-title">Hello! I'm <span>Trang Tran.</span></h1>
         <p class="hero-subtitle">Creative Project Manager</p>
-        <p class="hero-subtitle" style="color: var(--ink2); font-size: 14px; margin-bottom: 24px;">It's past delivering creative projects end-to-end for US-based clients across content, strategy, design, and video editing.</p>
+        <p class="hero-subtitle" style="color: var(--ink2); font-size: 14px; margin-bottom: 24px;">I've spent the past 4 years delivering creative projects end-to-end for US-based clients across content, strategy, design, and video editing.</p>
         
         <div class="hero-checklist">
           <div class="hero-checklist-item">End-to-end project management across creative & video teams</div>
@@ -697,32 +728,35 @@
         <div class="testimonials-label">references?</div>
         <h2 class="testimonials-title">FROM PEOPLE I'VE WORKED WITH</h2>
       </div>
-      <div class="testimonials-container">
+<div class="testimonials-container" id="testimonialsContainer">
         <div class="testimonial-card">
           <div class="testimonial-quote">"</div>
+          <div class="testimonial-author-name">Hannah Nguyen</div>
           <p class="testimonial-text">Trang took charge and did the detailed, meticulous work that carried the project through. She's the kind of person who identifies gaps and plugs them in.</p>
           <div class="testimonial-author">
             <img src="/assets/images/hannah-nguyen.jpg" alt="Hannah Nguyen" class="testimonial-image">
             <div>
               <h4>Hannah Nguyen</h4>
-              <p class="testimonial-role">Content Manager at LaunchMen</p>
+              <p class="testimonial-role">Content Manager at Launchmen</p>
             </div>
           </div>
         </div>
         <div class="testimonial-card">
           <div class="testimonial-quote">"</div>
-          <p class="testimonial-text">It's rare to find someone who can speak the language of both creative and execution. Trang does both effortlessly. Always a pleasure to work with her!</p>
+          <div class="testimonial-author-name">Tin Nguyen</div>
+          <p class="testimonial-text">It's truly a blessing to have had the opportunity to work alongside Trang.</p>
           <div class="testimonial-author">
             <img src="/assets/images/tin-nguyen.jpg" alt="Tin Nguyen" class="testimonial-image">
             <div>
               <h4>Tin Nguyen</h4>
-              <p class="testimonial-role">Executive Assistant at LaunchMen</p>
+              <p class="testimonial-role">Executive Assistant at Launchmen</p>
             </div>
           </div>
         </div>
         <div class="testimonial-card">
           <div class="testimonial-quote">"</div>
-          <p class="testimonial-text">What sets her apart is her attention to detail and her ability to think strategically about content. You need people like that on every team.</p>
+          <div class="testimonial-author-name">Vy Nguyen</div>
+          <p class="testimonial-text">What sets Trang apart is her rare meticulous attention to detail and a genuine care for the people around her.</p>
           <div class="testimonial-author">
             <img src="/assets/images/vy-nguyen.jpg" alt="Vy Nguyen" class="testimonial-image">
             <div>
@@ -731,8 +765,43 @@
             </div>
           </div>
         </div>
+        <div class="testimonial-card">
+          <div class="testimonial-quote">"</div>
+          <div class="testimonial-author-name">Tuyen Tran</div>
+          <p class="testimonial-text">I truly enjoyed working with her and would highly recommend her to any team looking for a talented copywriter and a great colleague.</p>
+          <div class="testimonial-author">
+            <img src="/assets/images/tuyen-tran.jpg" alt="Tuyen Tran" class="testimonial-image">
+            <div>
+              <h4>Tuyen Tran</h4>
+              <p class="testimonial-role">Website Developer at TVG</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-quote">"</div>
+          <div class="testimonial-author-name">Jerick Mataro</div>
+          <p class="testimonial-text">Trang is one of the best communicators I've worked with. She just had a way of keeping everyone on the same page.</p>
+          <div class="testimonial-author">
+            <img src="/assets/images/jerick-mataro.jpg" alt="Jerick Mataro" class="testimonial-image">
+            <div>
+              <h4>Jerick Mataro</h4>
+              <p class="testimonial-role">Graphic Designer at Launchmen</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-quote">"</div>
+          <div class="testimonial-author-name">Dashiell Althea</div>
+          <p class="testimonial-text">She has a way of making even busy projects feel manageable by keeping everything on track and communicating clearly.</p>
+          <div class="testimonial-author">
+            <img src="/assets/images/dashiell-althea-barrera.jpg" alt="Dashiell Althea" class="testimonial-image">
+            <div>
+              <h4>Dashiell Althea</h4>
+              <p class="testimonial-role">Lead Editor at Launchmen</p>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
   </section>
 
   <!-- FOOTER -->
@@ -773,10 +842,46 @@
       <div class="footer-bottom-links">
         <a href="https://www.linkedin.com/in/trang-tran-030243196/" target="_blank">LinkedIn</a>
         <a href="mailto:trangtran230899@gmail.com">Email</a>
-        <a href="#">Download CV</a>
+        <a href="/assets/cv/trang-tran-cv.pdf" download>Download CV</a>
       </div>
     </div>
   </div>
+<script>
+    // Testimonial carousel
+    var container = document.getElementById('testimonialsContainer');
+    var dotsWrap = document.getElementById('testimonialDots');
 
+    function getPageCount() {
+      return Math.round(container.scrollWidth / container.clientWidth);
+    }
+
+    function buildDots() {
+      dotsWrap.innerHTML = '';
+      var count = getPageCount();
+      for (var i = 0; i < count; i++) {
+        var dot = document.createElement('span');
+        if (i === 0) dot.classList.add('active');
+        (function (index) {
+          dot.addEventListener('click', function () {
+            container.scrollTo({ left: index * container.clientWidth, behavior: 'smooth' });
+          });
+        })(i);
+        dotsWrap.appendChild(dot);
+      }
+    }
+
+    function updateDots() {
+      var index = Math.round(container.scrollLeft / container.clientWidth);
+      dotsWrap.querySelectorAll('span').forEach(function (dot, i) {
+        dot.classList.toggle('active', i === index);
+      });
+    }
+
+    if (container && dotsWrap) {
+      buildDots();
+      container.addEventListener('scroll', updateDots);
+      window.addEventListener('resize', buildDots);
+    }
+  </script>
 </body>
 </html>

@@ -463,9 +463,22 @@
       text-transform: uppercase;
     }
     .testimonials-container {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      display: flex;
       gap: 32px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+    .testimonials-container::-webkit-scrollbar { display: none; }
+    .testimonial-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+      position: relative;
+      flex: 0 0 calc((100% - 64px) / 3);
+      scroll-snap-align: start;
     }
     .testimonial-card {
       background: var(--white);
@@ -518,7 +531,7 @@
       margin: 0;
     }
     .testimonial-dots {
-      display: none;
+      display: flex;
       justify-content: center;
       gap: 8px;
       margin-top: 32px;
@@ -528,8 +541,9 @@
       height: 7px;
       border-radius: 50%;
       background: var(--border);
-    }
-    .testimonial-dots span.active { background: var(--orange); }
+      cursor: pointer; 
+      }
+      .testimonial-dots span.active { background: var(--orange); }
 
     /* ============ FOOTER CTA (matches homepage) ============ */
     .footer-cta {
@@ -612,7 +626,7 @@
       .tools-grid { grid-template-columns: 1fr; }
       .roles-header h2, .tools-header h2, .education-header h2, .testimonials-header h2 { font-size: 28px; }
       .role-card { flex-wrap: wrap; }
-      .testimonials-container { grid-template-columns: 1fr; }
+      .testimonial-card { flex: 0 0 100%; }
       .footer-cta-inner { grid-template-columns: 1fr; }
       .footer-cols { grid-template-columns: 1fr 1fr; }
     }
@@ -881,7 +895,7 @@
         <div class="eyebrow">references?</div>
         <h2>From People I've Worked With</h2>
       </div>
-      <div class="testimonials-container" id="testimonialsContainer">
+<div class="testimonials-container" id="testimonialsContainer">
         <div class="testimonial-card">
           <div class="testimonial-quote">"</div>
           <div class="testimonial-author-name">Hannah Nguyen</div>
@@ -897,7 +911,7 @@
         <div class="testimonial-card">
           <div class="testimonial-quote">"</div>
           <div class="testimonial-author-name">Tin Nguyen</div>
-          <p class="testimonial-text">It's truly a blessing to have had the opportunity to work alongside Taylor. Executive Assistant at Launchmen.</p>
+          <p class="testimonial-text">It's truly a blessing to have had the opportunity to work alongside Taylor.</p>
           <div class="testimonial-author">
             <img src="/assets/images/tin-nguyen.jpg" alt="Tin Nguyen" class="testimonial-image">
             <div>
@@ -914,17 +928,47 @@
             <img src="/assets/images/vy-nguyen.jpg" alt="Vy Nguyen" class="testimonial-image">
             <div>
               <h4>Vy Nguyen</h4>
-              <p class="testimonial-role">Executive Assistant at The Vietnam Group</p>
+              <p class="testimonial-role">Executive Assistant at Launchmen</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-quote">"</div>
+          <div class="testimonial-author-name">Tuyen Tran</div>
+          <p class="testimonial-text">I truly enjoyed working with her and would highly recommend her to any team looking for a talented copywriter and a great colleague.</p>
+          <div class="testimonial-author">
+            <img src="/assets/images/tuyen-tran.jpg" alt="Tuyen Tran" class="testimonial-image">
+            <div>
+              <h4>Tuyen Tran</h4>
+              <p class="testimonial-role">Website Developer at TVG</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-quote">"</div>
+          <div class="testimonial-author-name">Jerick Mataro</div>
+          <p class="testimonial-text">Taylor is one of the best communicators I've worked with. She just had a way of keeping everyone on the same page.</p>
+          <div class="testimonial-author">
+            <img src="/assets/images/jerick-mataro.jpg" alt="Jerick Mataro" class="testimonial-image">
+            <div>
+              <h4>Jerick Mataro</h4>
+              <p class="testimonial-role">Graphic Designer at Launchmen</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-quote">"</div>
+          <div class="testimonial-author-name">Dashiell Althea</div>
+          <p class="testimonial-text">She has a way of making even busy projects feel manageable by keeping everything on track and communicating clearly.</p>
+          <div class="testimonial-author">
+            <img src="/assets/images/dashiell-althea-barrera.jpg" alt="Dashiell Althea" class="testimonial-image">
+            <div>
+              <h4>Dashiell Althea</h4>
+              <p class="testimonial-role">Lead Editor at Launchmen</p>
             </div>
           </div>
         </div>
       </div>
-      <div class="testimonial-dots" id="testimonialDots">
-        <span class="active"></span>
-        <span></span>
-        <span></span>
-      </div>
-    </div>
   </section>
 
   <!-- FOOTER -->
@@ -970,7 +1014,7 @@
     </div>
   </div>
 
-  <script>
+<script>
     // Accordion toggle
     document.querySelectorAll('.accordion-header').forEach(function (header) {
       header.addEventListener('click', function () {
@@ -978,16 +1022,40 @@
       });
     });
 
-    // Testimonial dots (updates on mobile horizontal scroll, harmless on desktop grid)
+    // Testimonial carousel
     var container = document.getElementById('testimonialsContainer');
-    var dots = document.querySelectorAll('#testimonialDots span');
-    if (container && dots.length) {
-      container.addEventListener('scroll', function () {
-        var index = Math.round(container.scrollLeft / container.clientWidth);
-        dots.forEach(function (dot, i) {
-          dot.classList.toggle('active', i === index);
-        });
+    var dotsWrap = document.getElementById('testimonialDots');
+
+    function getPageCount() {
+      return Math.round(container.scrollWidth / container.clientWidth);
+    }
+
+    function buildDots() {
+      dotsWrap.innerHTML = '';
+      var count = getPageCount();
+      for (var i = 0; i < count; i++) {
+        var dot = document.createElement('span');
+        if (i === 0) dot.classList.add('active');
+        (function (index) {
+          dot.addEventListener('click', function () {
+            container.scrollTo({ left: index * container.clientWidth, behavior: 'smooth' });
+          });
+        })(i);
+        dotsWrap.appendChild(dot);
+      }
+    }
+
+    function updateDots() {
+      var index = Math.round(container.scrollLeft / container.clientWidth);
+      dotsWrap.querySelectorAll('span').forEach(function (dot, i) {
+        dot.classList.toggle('active', i === index);
       });
+    }
+
+    if (container && dotsWrap) {
+      buildDots();
+      container.addEventListener('scroll', updateDots);
+      window.addEventListener('resize', buildDots);
     }
   </script>
 
